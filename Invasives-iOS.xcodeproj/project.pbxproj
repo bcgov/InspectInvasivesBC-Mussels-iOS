@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		41CDD6252B3F93E60051F623 /* Invasives_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6242B3F93E60051F623 /* Invasives_iOSApp.swift */; };
-		41CDD6272B3F93E60051F623 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6262B3F93E60051F623 /* ContentView.swift */; };
 		41CDD6292B3F93E80051F623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41CDD6282B3F93E80051F623 /* Assets.xcassets */; };
 		41CDD62C2B3F93E80051F623 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41CDD62B2B3F93E80051F623 /* Preview Assets.xcassets */; };
 		41CDD6362B3F93E80051F623 /* Invasives_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6352B3F93E80051F623 /* Invasives_iOSTests.swift */; };
 		41CDD6402B3F93E80051F623 /* Invasives_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD63F2B3F93E80051F623 /* Invasives_iOSUITests.swift */; };
 		41CDD6422B3F93E80051F623 /* Invasives_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6412B3F93E80051F623 /* Invasives_iOSUITestsLaunchTests.swift */; };
+		41CDD6522B3F94A40051F623 /* ShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6512B3F94A40051F623 /* ShiftModel.swift */; };
+		41CDD6542B3F94CC0051F623 /* Inspection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6532B3F94CC0051F623 /* Inspection.swift */; };
+		41CDD6562B3FA1290051F623 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6552B3FA1290051F623 /* MainView.swift */; };
+		41CDD6582B3FA1380051F623 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6572B3FA1380051F623 /* HomeView.swift */; };
+		41CDD65A2B3FA14C0051F623 /* InspectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6592B3FA14C0051F623 /* InspectionView.swift */; };
+		41CDD65E2B3FA1CA0051F623 /* MajorCityPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD65D2B3FA1CA0051F623 /* MajorCityPicker.swift */; };
+		41CDD6602B3FA1E30051F623 /* WaterbodyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD65F2B3FA1E20051F623 /* WaterbodyPicker.swift */; };
+		41CDD6622B3FA1F90051F623 /* AwaitingAccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6612B3FA1F90051F623 /* AwaitingAccessResponse.swift */; };
+		41CDD6642B3FA20C0051F623 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6632B3FA20C0051F623 /* LoginView.swift */; };
+		41CDD6672B3FA3230051F623 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6662B3FA3230051F623 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +45,6 @@
 /* Begin PBXFileReference section */
 		41CDD6212B3F93E60051F623 /* Invasives-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Invasives-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41CDD6242B3F93E60051F623 /* Invasives_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invasives_iOSApp.swift; sourceTree = "<group>"; };
-		41CDD6262B3F93E60051F623 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		41CDD6282B3F93E80051F623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41CDD62B2B3F93E80051F623 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		41CDD6312B3F93E80051F623 /* Invasives-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Invasives-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +52,16 @@
 		41CDD63B2B3F93E80051F623 /* Invasives-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Invasives-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41CDD63F2B3F93E80051F623 /* Invasives_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invasives_iOSUITests.swift; sourceTree = "<group>"; };
 		41CDD6412B3F93E80051F623 /* Invasives_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invasives_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		41CDD6512B3F94A40051F623 /* ShiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftModel.swift; sourceTree = "<group>"; };
+		41CDD6532B3F94CC0051F623 /* Inspection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspection.swift; sourceTree = "<group>"; };
+		41CDD6552B3FA1290051F623 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		41CDD6572B3FA1380051F623 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		41CDD6592B3FA14C0051F623 /* InspectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectionView.swift; sourceTree = "<group>"; };
+		41CDD65D2B3FA1CA0051F623 /* MajorCityPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorCityPicker.swift; sourceTree = "<group>"; };
+		41CDD65F2B3FA1E20051F623 /* WaterbodyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterbodyPicker.swift; sourceTree = "<group>"; };
+		41CDD6612B3FA1F90051F623 /* AwaitingAccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwaitingAccessResponse.swift; sourceTree = "<group>"; };
+		41CDD6632B3FA20C0051F623 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		41CDD6662B3FA3230051F623 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +112,10 @@
 		41CDD6232B3F93E60051F623 /* Invasives-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				41CDD65B2B3FA1A90051F623 /* Components */,
+				41CDD6502B3F94900051F623 /* Models */,
+				41CDD64E2B3F94050051F623 /* Views */,
 				41CDD6242B3F93E60051F623 /* Invasives_iOSApp.swift */,
-				41CDD6262B3F93E60051F623 /* ContentView.swift */,
 				41CDD6282B3F93E80051F623 /* Assets.xcassets */,
 				41CDD62A2B3F93E80051F623 /* Preview Content */,
 			);
@@ -125,6 +145,37 @@
 				41CDD6412B3F93E80051F623 /* Invasives_iOSUITestsLaunchTests.swift */,
 			);
 			path = "Invasives-iOSUITests";
+			sourceTree = "<group>";
+		};
+		41CDD64E2B3F94050051F623 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				41CDD6552B3FA1290051F623 /* MainView.swift */,
+				41CDD6572B3FA1380051F623 /* HomeView.swift */,
+				41CDD6592B3FA14C0051F623 /* InspectionView.swift */,
+				41CDD6612B3FA1F90051F623 /* AwaitingAccessResponse.swift */,
+				41CDD6632B3FA20C0051F623 /* LoginView.swift */,
+				41CDD6662B3FA3230051F623 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		41CDD6502B3F94900051F623 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				41CDD6512B3F94A40051F623 /* ShiftModel.swift */,
+				41CDD6532B3F94CC0051F623 /* Inspection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		41CDD65B2B3FA1A90051F623 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				41CDD65D2B3FA1CA0051F623 /* MajorCityPicker.swift */,
+				41CDD65F2B3FA1E20051F623 /* WaterbodyPicker.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +308,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41CDD6272B3F93E60051F623 /* ContentView.swift in Sources */,
+				41CDD65E2B3FA1CA0051F623 /* MajorCityPicker.swift in Sources */,
+				41CDD6522B3F94A40051F623 /* ShiftModel.swift in Sources */,
+				41CDD6622B3FA1F90051F623 /* AwaitingAccessResponse.swift in Sources */,
+				41CDD65A2B3FA14C0051F623 /* InspectionView.swift in Sources */,
 				41CDD6252B3F93E60051F623 /* Invasives_iOSApp.swift in Sources */,
+				41CDD6582B3FA1380051F623 /* HomeView.swift in Sources */,
+				41CDD6602B3FA1E30051F623 /* WaterbodyPicker.swift in Sources */,
+				41CDD6642B3FA20C0051F623 /* LoginView.swift in Sources */,
+				41CDD6672B3FA3230051F623 /* SettingsView.swift in Sources */,
+				41CDD6562B3FA1290051F623 /* MainView.swift in Sources */,
+				41CDD6542B3F94CC0051F623 /* Inspection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
