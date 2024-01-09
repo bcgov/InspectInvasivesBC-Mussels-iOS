@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
   var minLengthConstraint: Int = 3;
   @Binding var loggedIn: Bool
+ 
   @State var username: String = ""
   @State var password: String = ""
   @State private var showAlert: Bool = false;
@@ -30,6 +31,7 @@ struct LoginView: View {
           }
         }.frame(height: 125)
       }
+      
       VStack{
         TextField("Username", text: $username).padding();
         SecureField("Password", text: $password).padding();
