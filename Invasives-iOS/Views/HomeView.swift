@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-  @StateObject var shifts: ShiftModels = ShiftModels()
+  @EnvironmentObject var shifts: ShiftModels;
   var body: some View {
     HStack(){
       Spacer()
@@ -42,6 +42,15 @@ struct HomeView: View {
   }
 }
 
-#Preview {
-  HomeView()
+struct HomeView_Previews: PreviewProvider {
+  static var previews: some View {
+    PreviewWrapper()
+  }
+}
+
+struct HomeView_PreviewWrapper: View {
+  @StateObject var shifts: ShiftModels = ShiftModels();
+  var body: some View {
+    MainView(shifts: shifts)
+  }
 }

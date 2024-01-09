@@ -10,12 +10,13 @@ import SwiftUI
 struct MainView: View {
   @State var loggedIn: Bool = false;
   @State private var showSettings = false
+  @StateObject var shifts: ShiftModels = ShiftModels()
   var body: some View {
     if(loggedIn){
       NavigationStack() {
         VStack() {
           if (showSettings){SettingsView()}
-          else {HomeView()}
+          else {HomeView().environmentObject(shifts)}
         }.toolbar{
           ToolbarItem(placement: .navigationBarTrailing) {
             Button(action: {
