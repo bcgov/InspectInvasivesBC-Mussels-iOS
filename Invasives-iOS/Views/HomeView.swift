@@ -20,37 +20,37 @@ struct HomeView: View {
       }.padding(.trailing)
     }
     Table($shifts.entries){
-      TableColumn("ID") { $entry in
+      TableColumn("Shift ID") { $entry in
         Text(entry.shiftID.uuidString)
       }
       TableColumn("Shift Date") { $entry in
-        Text(formatDate(date: entry.shiftStartDate))
+        Text(entry.formattedDate(date: entry.shiftStartDate))
       }
       TableColumn("Station Location") { $entry in
         Text(entry.station)
       }
       TableColumn("Status") { $entry in
-        Text(entry.status.rawValue)
+        HStack {
+          entry.getStatusComponent()
+        }
       }
       TableColumn("") { $entry in
         NavigationLink(
-          destination: ShiftView(shift: $entry)) {
+          destination: ShiftView(shift: entry, isEditable: entry.status != Status.Complete)) {
             Text("View")
+              .foregroundColor(Color.blue)
+          }.swipeActions(edge: .trailing) {
+            Button(role: .destructive) {
+              shifts.entries.removeAll(where: {$0.id == $entry.id})
+            } label: {
+              Label("Delete", systemImage: "trash")
+            }
           }
       }
-    }
+    }.foregroundColor(Color.black)
   }
 }
 
-struct HomeView_Previews: PreviewProvider {
-  static var previews: some View {
-    PreviewWrapper()
-  }
-}
-
-struct HomeView_PreviewWrapper: View {
-  @StateObject var shifts: ShiftModels = ShiftModels();
-  var body: some View {
-    MainView(shifts: shifts)
-  }
+#Preview {
+  HomeView().environmentObject(ShiftModels())
 }

@@ -8,21 +8,17 @@
 import Foundation
 
 
-struct BlowbyModel: Identifiable {
-
-  
+struct BlowbyModel: Identifiable, Observable {
   let id = UUID();
-  let userID = UUID();
+  let userID = 7;
   var blowByTime: Date = Date();
-  var waterCraftComplexity: Complexity = Complexity.NonMotorized
+  var waterCraftComplexity: Complexity = .NonMotorized
   var reportedToRapp: Bool = false;
-}
-
-class BlowbyModels: ObservableObject {
-  @Published var entries: [BlowbyModel];
   
-  init() {
-    entries = [BlowbyModel]()
+  func getFormattedTime(date: Date) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "hh:mm"
+    return dateFormatter.string(from: date)
   }
 }
 

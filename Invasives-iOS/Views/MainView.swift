@@ -11,18 +11,17 @@ struct MainView: View {
   @State var loggedIn: Bool = false;
   @State private var showSettings = false
   @StateObject var shifts: ShiftModels = ShiftModels()
+
   var body: some View {
     if(loggedIn){
       NavigationStack() {
         VStack() {
-          if (showSettings){SettingsView()}
-          else {HomeView().environmentObject(shifts)}
+          HomeView().environmentObject(shifts).navigationTitle("Mussel Inspect App")
         }.toolbar{
           ToolbarItem(placement: .navigationBarTrailing) {
-            Button(action: {
-              print("ButtonPress")
-              showSettings.toggle()
-            }){ Image(systemName: showSettings ? "house" : "gear") }
+            NavigationLink(destination: SettingsView()) {
+              Image(systemName: "gear")
+            }
           }
           ToolbarItem(placement: .navigationBarTrailing) {
             Button(action: {
@@ -37,16 +36,6 @@ struct MainView: View {
   }
 }
 
-
-struct MainView_Previews: PreviewProvider {
-  static var previews: some View {
-    PreviewWrapper()
-  }
-}
-
-struct MainView_PreviewWrapper: View {
-  @State var showSettings: Bool = false;
-  var body: some View {
-    MainView()
-  }
+#Preview {
+  MainView(loggedIn: true)
 }

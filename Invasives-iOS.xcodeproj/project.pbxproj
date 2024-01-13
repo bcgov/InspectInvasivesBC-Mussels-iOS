@@ -23,10 +23,11 @@
 		41CDD6622B3FA1F90051F623 /* AwaitingAccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6612B3FA1F90051F623 /* AwaitingAccessResponse.swift */; };
 		41CDD6642B3FA20C0051F623 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6632B3FA20C0051F623 /* LoginView.swift */; };
 		41CDD6672B3FA3230051F623 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6662B3FA3230051F623 /* SettingsView.swift */; };
-		41D011D62B4DEF46007437BC /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D011D52B4DEF46007437BC /* SwiftUIView.swift */; };
 		41D011D82B4DEF8C007437BC /* BlowbyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D011D72B4DEF8C007437BC /* BlowbyModel.swift */; };
-		41D011DA2B4DF561007437BC /* ShiftRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D011D92B4DF561007437BC /* ShiftRow.swift */; };
 		41D011DC2B4E006E007437BC /* ShiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D011DB2B4E006E007437BC /* ShiftView.swift */; };
+		41D9B4F52B525BD1006BB480 /* EmptyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9B4F42B525BD1006BB480 /* EmptyTable.swift */; };
+		41D9B4F72B525E51006BB480 /* BlowbyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9B4F62B525E51006BB480 /* BlowbyTable.swift */; };
+		41D9B4F92B5260D2006BB480 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9B4F82B5260D2006BB480 /* StringConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,10 +67,11 @@
 		41CDD6612B3FA1F90051F623 /* AwaitingAccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwaitingAccessResponse.swift; sourceTree = "<group>"; };
 		41CDD6632B3FA20C0051F623 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		41CDD6662B3FA3230051F623 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		41D011D52B4DEF46007437BC /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		41D011D72B4DEF8C007437BC /* BlowbyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlowbyModel.swift; sourceTree = "<group>"; };
-		41D011D92B4DF561007437BC /* ShiftRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftRow.swift; sourceTree = "<group>"; };
 		41D011DB2B4E006E007437BC /* ShiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftView.swift; sourceTree = "<group>"; };
+		41D9B4F42B525BD1006BB480 /* EmptyTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTable.swift; sourceTree = "<group>"; };
+		41D9B4F62B525E51006BB480 /* BlowbyTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlowbyTable.swift; sourceTree = "<group>"; };
+		41D9B4F82B5260D2006BB480 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				41CDD6242B3F93E60051F623 /* Invasives_iOSApp.swift */,
 				41CDD6282B3F93E80051F623 /* Assets.xcassets */,
 				41CDD62A2B3F93E80051F623 /* Preview Content */,
+				41D9B4F82B5260D2006BB480 /* StringConstants.swift */,
 			);
 			path = "Invasives-iOS";
 			sourceTree = "<group>";
@@ -184,8 +187,8 @@
 			children = (
 				41CDD65D2B3FA1CA0051F623 /* MajorCityPicker.swift */,
 				41CDD65F2B3FA1E20051F623 /* WaterbodyPicker.swift */,
-				41D011D52B4DEF46007437BC /* SwiftUIView.swift */,
-				41D011D92B4DF561007437BC /* ShiftRow.swift */,
+				41D9B4F42B525BD1006BB480 /* EmptyTable.swift */,
+				41D9B4F62B525E51006BB480 /* BlowbyTable.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -322,19 +325,20 @@
 			files = (
 				41CDD65E2B3FA1CA0051F623 /* MajorCityPicker.swift in Sources */,
 				41CDD6522B3F94A40051F623 /* ShiftModel.swift in Sources */,
-				41D011D62B4DEF46007437BC /* SwiftUIView.swift in Sources */,
 				41CDD6622B3FA1F90051F623 /* AwaitingAccessResponse.swift in Sources */,
 				41CDD65A2B3FA14C0051F623 /* InspectionView.swift in Sources */,
+				41D9B4F92B5260D2006BB480 /* StringConstants.swift in Sources */,
 				41D011DC2B4E006E007437BC /* ShiftView.swift in Sources */,
 				41CDD6252B3F93E60051F623 /* Invasives_iOSApp.swift in Sources */,
 				41CDD6582B3FA1380051F623 /* HomeView.swift in Sources */,
 				41CDD6602B3FA1E30051F623 /* WaterbodyPicker.swift in Sources */,
+				41D9B4F72B525E51006BB480 /* BlowbyTable.swift in Sources */,
 				41CDD6642B3FA20C0051F623 /* LoginView.swift in Sources */,
 				41CDD6672B3FA3230051F623 /* SettingsView.swift in Sources */,
+				41D9B4F52B525BD1006BB480 /* EmptyTable.swift in Sources */,
 				41CDD6562B3FA1290051F623 /* MainView.swift in Sources */,
 				41D011D82B4DEF8C007437BC /* BlowbyModel.swift in Sources */,
 				41CDD6542B3F94CC0051F623 /* Inspection.swift in Sources */,
-				41D011DA2B4DF561007437BC /* ShiftRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

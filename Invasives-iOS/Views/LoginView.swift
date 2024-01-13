@@ -13,7 +13,7 @@ struct LoginView: View {
  
   @State var username: String = ""
   @State var password: String = ""
-  @State private var showAlert: Bool = false;
+  @State private var showAlert: Bool = false;   
   var body: some View {
     VStack(){
       Spacer()
@@ -35,7 +35,7 @@ struct LoginView: View {
       VStack{
         TextField("Username", text: $username).padding();
         SecureField("Password", text: $password).padding();
-        Button( action: { VerifyLogin() }) { Text("Login") }
+        Button( action: { loggedIn.toggle()/**VerifyLogin()*/ }) { Text("Login") }
           .alert(isPresented: $showAlert) {
             Alert(
               title: Text("Invalid Login"),
