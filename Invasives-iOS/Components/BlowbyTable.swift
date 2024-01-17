@@ -19,7 +19,7 @@ struct BlowbyTable: View {
           }
         }
         TableColumn("Watercraft Complexity"){ $entry in
-          Picker("PickYourNose", selection: $entry.waterCraftComplexity){
+          Picker("", selection: $entry.waterCraftComplexity){
             ForEach(Complexity.allCases, id: \.self) { option in
               Text(option.rawValue)}
           }.disabled(!isEditable)

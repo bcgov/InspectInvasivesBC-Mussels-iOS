@@ -27,7 +27,7 @@ class ShiftModel: Identifiable, ObservableObject {
   @Published var status: Status = Status.Draft;
   //   @Published var boatsInspected: [WatercraftInspection] = [];
   @Published var k9_on_shift: Bool = false;
-  
+  @Published var boats_inspected_during_shift: Bool = false;
   var observer_workflow_id: Int = -1;
   let shiftID = UUID();
   
