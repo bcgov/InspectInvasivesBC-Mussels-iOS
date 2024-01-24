@@ -4,7 +4,7 @@
 
 This application is for the field-based recording of watercraft inspections for Invasive Mussels in British Columbia, Canada. 
 
-Anyone with a BCeID or idir can log into the application, but only users with the following roles can create and submit entries.
+Anyone with an IDIR can log into the application, but only users with the following roles can create and submit entries.
 
   - Officer Mussel Inspect App
   - Admin Mussel Inspect App
