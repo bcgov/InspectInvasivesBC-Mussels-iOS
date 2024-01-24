@@ -20,6 +20,7 @@ enum Status: String, CaseIterable {
 class ShiftModel: Identifiable, ObservableObject {
   @Published var blowBys: [BlowbyModel];
   @Published var shiftStartDate: Date;
+  @Published var shiftEndDate: Date;
   @Published var station: String = "";
   @Published var location: String = "";
   @Published var shift_start_comment: String;
@@ -39,6 +40,7 @@ class ShiftModel: Identifiable, ObservableObject {
   ///   - shift_start_comments: shift_start_comments description
   init (shiftStartDate: Date = Date(), station: String = "Osoyoos", shift_start_comments: String = "Weather is ok"){
     self.shiftStartDate = shiftStartDate;
+    self.shiftEndDate = shiftStartDate;
     self.station = station;
     self.shift_start_comment = shift_start_comments;
     self.blowBys = [BlowbyModel]();
@@ -73,10 +75,6 @@ class ShiftModels: ObservableObject {
   
   init() {
     entries = [ShiftModel]()
-    entries.append(ShiftModel())
-    entries.append(ShiftModel())
-    entries.append(ShiftModel())
-    entries.append(ShiftModel())
   }
   func addNewShift() {
     DispatchQueue.main.async {

@@ -17,7 +17,7 @@ struct EmptyTable: View {
           .foregroundColor(.gray)
           .frame(width: 100, height: 100);
         Text("It's looking a little empty around here.").font(.system(size: 22)).bold().foregroundColor(.gray)
-        Text("You have not added any \(collection) to this shift").foregroundColor(.gray)
+        Text("You have not added any \(collection)").foregroundColor(.gray)
       }
     }
 }

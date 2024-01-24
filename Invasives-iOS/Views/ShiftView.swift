@@ -11,23 +11,28 @@ struct ShiftView: View {
   @ObservedObject var shift: ShiftModel;
   
   var isEditable: Bool;
-  var customColor: Color = Color(red: 238/255, green: 237/255, blue: 231/255)
   var body: some View {
     // MARK: Title Section, displays Shift ID, Date, Status
     VStack{
-      HStack{
-        Text("ID: \(Int.random(in: 1..<99)) - \(shift.formattedDate(date: shift.shiftStartDate))").bold()
-        shift.getStatusComponent()
-        Spacer();
-      }.padding()
-      Divider()
-        .background(Color.green)
-        .padding(.horizontal)
+      Section( header: VStack {
+        HStack{
+          HeaderText(header: "Shift Overview")
+          Spacer()
+        }
+        CustomDivider()
+      }){
+        HStack{
+          Text("ID: \(Int.random(in: 1..<99)) - \(shift.formattedDate(date: shift.shiftStartDate))").bold()
+          shift.getStatusComponent()
+          Spacer();
+        }.padding()
+      }.padding(.horizontal, 20)
+
       
       // MARK: Inspections Section
       Section(header: VStack{
         HStack{
-          Text("Inspections").font(.system(size: 24)).padding(.leading)
+          HeaderText(header: "Inspections")
           Spacer()
           if(isEditable){
             Image(systemName: "plus").foregroundColor(.blue);
@@ -36,8 +41,7 @@ struct ShiftView: View {
             });
           }
         }
-        Divider().background(Color.yellow)
-          .padding(.horizontal)
+        CustomDivider()
       }
         .padding(.horizontal, 20))
       {
@@ -46,7 +50,7 @@ struct ShiftView: View {
       // MARK: Blowby Section
       Section(header: VStack{
         HStack{
-          Text("Blowbys").font(.system(size: 24)).padding(.leading)
+          HeaderText(header: "Blowbys")
           Spacer()
           if(isEditable){
             Image(systemName: "plus").foregroundColor(.blue);
@@ -55,8 +59,7 @@ struct ShiftView: View {
             });
           }
         }
-        Divider().background(Color.yellow)
-          .padding(.horizontal)
+        CustomDivider()
       }
         .padding(.horizontal, 20))
       {
@@ -69,26 +72,25 @@ struct ShiftView: View {
         }
       Spacer()
       HStack{
-        Text("Shift Information").font(.system(size: 24)).padding(.leading)
+        HeaderText(header: "Shift Information")
         Spacer()
       }.padding(.horizontal, 20)
-      Divider()
-        .background(Color.yellow)
+      CustomDivider()
         .padding([.horizontal, .bottom], 20)
   
       Section(header: VStack{
         HStack{
-          Text("Shift Start").font(.system(size: 24)).padding(.leading)
+          HeaderText(header: "Shift Start")
           Spacer()
         }
       }.padding(.horizontal, 20))
       {
         VStack{
           HStack{
-            Text("Shift Start Time:")
+            InputTextLabel(text: "Shift Start Time:")
             DatePicker("Shift Start Time", selection: $shift.shiftStartDate).labelsHidden()
             Spacer()
-            Text("Station:")
+            InputTextLabel(text: "Station:")
             Picker("Station", selection: $shift.station) {
               ForEach(Stations, id: \.self) { option in
                 Text(option)
@@ -96,45 +98,49 @@ struct ShiftView: View {
             }.disabled(!isEditable)
           }
           HStack(alignment: .top) {
-            Text("Shift Start Comments:")
+            InputTextLabel(text: "Shift Start Comments:")
             TextField("Label", text: $shift.shift_start_comment, axis: .vertical)
               .scrollContentBackground(.hidden)
-              .background(Color(red: 238/255, green: 237/255, blue: 231/255))
+              .background(inputBackgroundColor)
             
           }
         }.padding(.horizontal, 50)
       }
       Spacer().frame(height: 50)
+      CustomDivider()
+        .padding([.horizontal, .bottom], 20)
       Section(header: VStack{
         HStack{
-          Text("Shift End").font(.system(size: 24)).padding(.leading)
+          HeaderText(header: "Shift End")
           Spacer()
         }
       }.padding(.horizontal, 20))
       {
         VStack{
           HStack{
-            Text("Shift End Time:")
-            DatePicker("Shift End Time", selection: $shift.shiftStartDate, displayedComponents: .hourAndMinute).labelsHidden()
+            InputTextLabel(text: "Shift End Time:")
+            DatePicker("Shift End Time", selection: $shift.shiftEndDate, displayedComponents: .hourAndMinute).labelsHidden()
             Spacer()
-            Text("\(Image(systemName: "dog.fill")) K9 on Shift")
+            Image(systemName: "dog.fill")
+            InputTextLabel(text: "K9 on Shift")
             Toggle(isOn: $shift.k9_on_shift){
               Text(Image(systemName: "dog.fill"))
             }.labelsHidden()
             Spacer()
-            Text("\(Image(systemName: "sailboat.fill")) Boats Inspected")
+            Image(systemName: "sailboat.fill")
+            InputTextLabel(text: "Boats Inspected")
             Toggle(isOn: $shift.boats_inspected_during_shift){
-              Text("\(Image(systemName: "sailboat.fill")) Boats Inspected")
+              Image(systemName: "sailboat.fill")
+              InputTextLabel(text: "Boats Inspected")
             }.labelsHidden()
             Spacer()
             
           }
           HStack(alignment: .top) {
-            Text("Shift End Comments:")
+            InputTextLabel(text: "Shift End Comments:")
             TextField("", text: $shift.shift_end_comment, axis: .vertical)
               .scrollContentBackground(.hidden)
-              .background(customColor)
-            
+              .background(inputBackgroundColor) 
           }
         }.padding(.horizontal, 50)
       }
@@ -143,7 +149,7 @@ struct ShiftView: View {
         VStack(alignment: .leading){
           Spacer()
           HStack{
-            Text("Shift Status:")
+            InputTextLabel(text: "Shift Status:")
             Picker("Status of Shift", selection: $shift.status){
               ForEach(Status.allCases, id: \.self) { option in
                 Text(option.rawValue)}
