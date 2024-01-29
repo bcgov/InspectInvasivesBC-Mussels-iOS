@@ -37,7 +37,7 @@ struct ShiftView: View {
           if(isEditable){
             Image(systemName: StringConstants.AppIcon.addIcon).foregroundColor(.blue);
             Button(StringConstants.ShiftView.addInspectionsLabel, action: {
-              print("Add Inspection Button");
+              shift.addInspection();
             });
           }
         }
@@ -45,7 +45,7 @@ struct ShiftView: View {
       }
         .padding(.horizontal, 20))
       {
-        EmptyTable(collection: StringConstants.ShiftView.inspectionsHeader)
+        InspectionTable(inspections: $shift.boatsInspected, isEditable: isEditable)
       }
       // MARK: Blowby Section
       Section(header: VStack{
@@ -64,11 +64,7 @@ struct ShiftView: View {
         .padding(.horizontal, 20))
       {
         // MARK: Blowby Table
-        if (shift.blowBys.count > 0) {
-          BlowbyTable(blowBys: $shift.blowBys, isEditable: isEditable)
-        } else {
-          EmptyTable(collection: StringConstants.ShiftView.blowbyHeader)
-        }
+        BlowbyTable(blowBys: $shift.blowBys, isEditable: isEditable)
       }
       Spacer()
       HStack{
