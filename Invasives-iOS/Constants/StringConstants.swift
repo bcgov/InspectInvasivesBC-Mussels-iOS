@@ -70,6 +70,13 @@ struct StringConstants {
     static let boatsInspectedLabel: String = "Boats Inspected"
   }
   
+  struct InspectionTable {
+    static let idHeader: String = "ID";
+    static let riskLevelHeader: String = "Risk Level";
+    static let timeAddedHeader: String = "Time Added";
+    static let statusLabel: String = "Status";
+    static let emptyTable: String = "Inspections";
+  }
   struct BlowbyTable {
     static let reportedToRapp: String = "Reported To Rapp";
     static let watercraftComplexity: String = "Watercraft Complexity";

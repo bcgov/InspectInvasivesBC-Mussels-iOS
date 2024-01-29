@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class InspectionModel : Identifiable, Observable {
+class InspectionModel : Identifiable, ObservableObject {
   let id = UUID()
   var userId: String = ""
   var timeStamp: Date = Date()
