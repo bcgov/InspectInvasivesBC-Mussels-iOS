@@ -16,6 +16,12 @@ var Stations: [String]  = [
   "Richmond"
 ].sorted()
 
+var ProvinceState: [String] = [
+  "British Columbia - BC",
+  "Alberta - AB",
+  "California - CA",
+];
+
 /// Text content of application, centralized in one place for ease of updating
 /// Broken down into structs representing corresponding views or purpose
 struct StringConstants {
@@ -47,7 +53,7 @@ struct StringConstants {
   }
   
   struct ShiftView {
-    static let shiftOverviewHeader: String = "ShiftOverview";
+    static let shiftOverviewHeader: String = "Shift Overview";
     static let inspectionsHeader: String = "Inspections";
     static let addInspectionsLabel: String = "Add Inspection";
     static let blowbyHeader: String = "Blowbys";
