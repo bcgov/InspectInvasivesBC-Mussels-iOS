@@ -24,7 +24,6 @@
 		41CDD6642B3FA20C0051F623 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6632B3FA20C0051F623 /* LoginView.swift */; };
 		41CDD6672B3FA3230051F623 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6662B3FA3230051F623 /* SettingsView.swift */; };
 		41CF5CF12B6061D9007F2B77 /* colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF5CF02B6061D9007F2B77 /* colors.swift */; };
-		41CF5CF32B6061E8007F2B77 /* textContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF5CF22B6061E8007F2B77 /* textContent.swift */; };
 		41CF5CF52B606382007F2B77 /* HeaderText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF5CF42B606382007F2B77 /* HeaderText.swift */; };
 		41CF5CF72B606618007F2B77 /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF5CF62B606618007F2B77 /* CustomDivider.swift */; };
 		41CF5CFA2B606962007F2B77 /* InputTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF5CF92B606962007F2B77 /* InputTextLabel.swift */; };
@@ -73,7 +72,6 @@
 		41CDD6632B3FA20C0051F623 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		41CDD6662B3FA3230051F623 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		41CF5CF02B6061D9007F2B77 /* colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colors.swift; sourceTree = "<group>"; };
-		41CF5CF22B6061E8007F2B77 /* textContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textContent.swift; sourceTree = "<group>"; };
 		41CF5CF42B606382007F2B77 /* HeaderText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderText.swift; sourceTree = "<group>"; };
 		41CF5CF62B606618007F2B77 /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		41CF5CF92B606962007F2B77 /* InputTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextLabel.swift; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 				41CDD6242B3F93E60051F623 /* Invasives_iOSApp.swift */,
 				41CDD6282B3F93E80051F623 /* Assets.xcassets */,
 				41CDD62A2B3F93E80051F623 /* Preview Content */,
-				41D9B4F82B5260D2006BB480 /* StringConstants.swift */,
 			);
 			path = "Invasives-iOS";
 			sourceTree = "<group>";
@@ -211,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				41CF5CF02B6061D9007F2B77 /* colors.swift */,
-				41CF5CF22B6061E8007F2B77 /* textContent.swift */,
+				41D9B4F82B5260D2006BB480 /* StringConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -365,7 +362,6 @@
 				41CF5CF52B606382007F2B77 /* HeaderText.swift in Sources */,
 				41CF5CFA2B606962007F2B77 /* InputTextLabel.swift in Sources */,
 				41D011D82B4DEF8C007437BC /* BlowbyModel.swift in Sources */,
-				41CF5CF32B6061E8007F2B77 /* textContent.swift in Sources */,
 				41CDD6542B3F94CC0051F623 /* Inspection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

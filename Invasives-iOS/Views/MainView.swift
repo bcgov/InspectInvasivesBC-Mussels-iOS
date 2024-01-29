@@ -11,22 +11,22 @@ struct MainView: View {
   @State var loggedIn: Bool = false;
   @State private var showSettings = false
   @StateObject var shifts: ShiftModels = ShiftModels()
-
+  
   var body: some View {
     if(loggedIn){
       NavigationStack() {
         VStack() {
-          HomeView().environmentObject(shifts).navigationTitle("Mussel Inspect App")
+          HomeView().environmentObject(shifts).navigationTitle(StringConstants.MainView.appTitle)
         }.toolbar{
           ToolbarItem(placement: .navigationBarTrailing) {
             NavigationLink(destination: SettingsView()) {
-              Image(systemName: "gear")
+              Image(systemName: StringConstants.AppIcon.settingsIcon)
             }
           }
           ToolbarItem(placement: .navigationBarTrailing) {
             Button(action: {
               print("Sync Action")
-            }){ Text("Sync Now") }
+            }){ Text(StringConstants.MainView.syncButtonLabel) }
           }
         }
       }

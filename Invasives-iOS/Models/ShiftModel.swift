@@ -16,12 +16,13 @@ enum Status: String, CaseIterable {
   case Pending = "Pending"
 }
 
-/// <#Description#>
+/// Shift model contains all relevant information to a shift, and encompasses two smaller models
+/// Watercraft Inspections and Blowbys
 class ShiftModel: Identifiable, ObservableObject {
   @Published var blowBys: [BlowbyModel];
   @Published var shiftStartDate: Date;
   @Published var shiftEndDate: Date;
-  @Published var station: String = "";
+  @Published var station: String;
   @Published var location: String = "";
   @Published var shift_start_comment: String;
   @Published var shift_end_comment: String = "";
@@ -32,44 +33,41 @@ class ShiftModel: Identifiable, ObservableObject {
   var observer_workflow_id: Int = -1;
   let shiftID = UUID();
   
-  
-  /// <#Description#>
-  /// - Parameters:
-  ///   - shiftStartDate: shiftStartDate description
-  ///   - station: station description
-  ///   - shift_start_comments: shift_start_comments description
-  init (shiftStartDate: Date = Date(), station: String = "Osoyoos", shift_start_comments: String = "Weather is ok"){
-    self.shiftStartDate = shiftStartDate;
-    self.shiftEndDate = shiftStartDate;
-    self.station = station;
-    self.shift_start_comment = shift_start_comments;
+  init (){
+    self.shiftStartDate = Date();
+    self.shiftEndDate = Date();
+    self.station = Stations[0];
+    self.shift_start_comment = "";
     self.blowBys = [BlowbyModel]();
   }
   
   func formattedDate(date: Date) -> String {
-      let dateFormatter = DateFormatter()
-      dateFormatter.dateFormat = "yyyy-MM-dd"
-      return dateFormatter.string(from: date)
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    return dateFormatter.string(from: date)
   }
+  
   func addBlowby() {
     blowBys.append(BlowbyModel());
   }
+  
+  /// Creates an Object text pairing showing the current status of the application
+  /// - Returns: HStack holding Icon + Text
   func getStatusComponent() -> some View {
     var color: Color;
     switch self.status {
-      case .Complete: color = Color.green;
-      case .Pending: color = Color.yellow;
-      default: color = Color.gray;
+    case .Complete: color = Color.green;
+    case .Pending: color = Color.yellow;
+    default: color = Color.gray;
     }
     return HStack {
-      Image(systemName: "circle.fill").foregroundColor(color)
+      Image(systemName: StringConstants.AppIcon.shiftStatus).foregroundColor(color)
       Text(self.status.rawValue)
     }
-    
   }
 }
 
-/// <#Description#>
+/// class representing a collection of shifts centralizing the shifts being done.
 class ShiftModels: ObservableObject {
   @Published var entries: [ShiftModel];
   

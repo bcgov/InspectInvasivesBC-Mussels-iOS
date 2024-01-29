@@ -16,7 +16,7 @@ struct ShiftView: View {
     VStack{
       Section( header: VStack {
         HStack{
-          HeaderText(header: "Shift Overview")
+          HeaderText(header: StringConstants.ShiftView.shiftOverviewHeader)
           Spacer()
         }
         CustomDivider()
@@ -27,16 +27,16 @@ struct ShiftView: View {
           Spacer();
         }.padding()
       }.padding(.horizontal, 20)
-
+      
       
       // MARK: Inspections Section
       Section(header: VStack{
         HStack{
-          HeaderText(header: "Inspections")
+          HeaderText(header: StringConstants.ShiftView.inspectionsHeader)
           Spacer()
           if(isEditable){
-            Image(systemName: "plus").foregroundColor(.blue);
-            Button("Add Inspection", action: {
+            Image(systemName: StringConstants.AppIcon.addIcon).foregroundColor(.blue);
+            Button(StringConstants.ShiftView.addInspectionsLabel, action: {
               print("Add Inspection Button");
             });
           }
@@ -45,16 +45,16 @@ struct ShiftView: View {
       }
         .padding(.horizontal, 20))
       {
-        EmptyTable(collection: "Inspections")
+        EmptyTable(collection: StringConstants.ShiftView.inspectionsHeader)
       }
       // MARK: Blowby Section
       Section(header: VStack{
         HStack{
-          HeaderText(header: "Blowbys")
+          HeaderText(header: StringConstants.ShiftView.blowbyHeader)
           Spacer()
           if(isEditable){
-            Image(systemName: "plus").foregroundColor(.blue);
-            Button("Add Blowby", action: {
+            Image(systemName: StringConstants.AppIcon.addIcon).foregroundColor(.blue);
+            Button(StringConstants.ShiftView.addBlowbyButtonLabel, action: {
               shift.addBlowby();
             });
           }
@@ -64,42 +64,42 @@ struct ShiftView: View {
         .padding(.horizontal, 20))
       {
         // MARK: Blowby Table
-          if (shift.blowBys.count > 0) {
-            BlowbyTable(blowBys: $shift.blowBys, isEditable: isEditable)
-          } else {
-            EmptyTable(collection: "Blowbys")
-          }
+        if (shift.blowBys.count > 0) {
+          BlowbyTable(blowBys: $shift.blowBys, isEditable: isEditable)
+        } else {
+          EmptyTable(collection: StringConstants.ShiftView.blowbyHeader)
         }
+      }
       Spacer()
       HStack{
-        HeaderText(header: "Shift Information")
+        HeaderText(header: StringConstants.ShiftView.shiftInformationHeader)
         Spacer()
       }.padding(.horizontal, 20)
       CustomDivider()
         .padding([.horizontal, .bottom], 20)
-  
+      
       Section(header: VStack{
         HStack{
-          HeaderText(header: "Shift Start")
+          HeaderText(header: StringConstants.ShiftView.shiftStartHeader)
           Spacer()
         }
       }.padding(.horizontal, 20))
       {
         VStack{
           HStack{
-            InputTextLabel(text: "Shift Start Time:")
-            DatePicker("Shift Start Time", selection: $shift.shiftStartDate).labelsHidden()
+            InputTextLabel(text: StringConstants.ShiftView.shiftStartLabel)
+            DatePicker(StringConstants.ShiftView.shiftStartLabel, selection: $shift.shiftStartDate).labelsHidden()
             Spacer()
-            InputTextLabel(text: "Station:")
-            Picker("Station", selection: $shift.station) {
+            InputTextLabel(text: StringConstants.ShiftView.stationLabel)
+            Picker(StringConstants.ShiftView.stationLabel, selection: $shift.station) {
               ForEach(Stations, id: \.self) { option in
                 Text(option)
               }
             }.disabled(!isEditable)
           }
           HStack(alignment: .top) {
-            InputTextLabel(text: "Shift Start Comments:")
-            TextField("Label", text: $shift.shift_start_comment, axis: .vertical)
+            InputTextLabel(text: StringConstants.ShiftView.shiftStartComments)
+            TextField(StringConstants.ShiftView.shiftStartComments, text: $shift.shift_start_comment, axis: .vertical)
               .scrollContentBackground(.hidden)
               .background(inputBackgroundColor)
             
@@ -111,36 +111,38 @@ struct ShiftView: View {
         .padding([.horizontal, .bottom], 20)
       Section(header: VStack{
         HStack{
-          HeaderText(header: "Shift End")
+          HeaderText(header: StringConstants.ShiftView.shiftEndHeader)
           Spacer()
         }
       }.padding(.horizontal, 20))
       {
         VStack{
           HStack{
-            InputTextLabel(text: "Shift End Time:")
-            DatePicker("Shift End Time", selection: $shift.shiftEndDate, displayedComponents: .hourAndMinute).labelsHidden()
+            InputTextLabel(text: StringConstants.ShiftView.shiftEndLabel)
+            DatePicker(StringConstants.ShiftView.shiftEndLabel, selection: $shift.shiftEndDate, displayedComponents: .hourAndMinute)
+              .labelsHidden()
             Spacer()
-            Image(systemName: "dog.fill")
-            InputTextLabel(text: "K9 on Shift")
+            Image(systemName: StringConstants.AppIcon.k9OnShift)
+            InputTextLabel(text: StringConstants.ShiftView.k9ShiftLabel)
             Toggle(isOn: $shift.k9_on_shift){
-              Text(Image(systemName: "dog.fill"))
+              Text(Image(systemName: StringConstants.AppIcon.k9OnShift))
             }.labelsHidden()
             Spacer()
-            Image(systemName: "sailboat.fill")
-            InputTextLabel(text: "Boats Inspected")
+            Image(systemName: StringConstants.AppIcon.boatsInspected)
+            InputTextLabel(text: StringConstants.ShiftView.boatsInspectedLabel)
             Toggle(isOn: $shift.boats_inspected_during_shift){
-              Image(systemName: "sailboat.fill")
-              InputTextLabel(text: "Boats Inspected")
+              Image(systemName: StringConstants.AppIcon.boatsInspected)
+              InputTextLabel(text: StringConstants.ShiftView.boatsInspectedLabel)
             }.labelsHidden()
             Spacer()
             
           }
           HStack(alignment: .top) {
-            InputTextLabel(text: "Shift End Comments:")
-            TextField("", text: $shift.shift_end_comment, axis: .vertical)
+            InputTextLabel(text: StringConstants.ShiftView.shiftEndComments)
+            TextField(StringConstants.ShiftView.shiftEndComments, text: $shift.shift_end_comment, axis: .vertical)
               .scrollContentBackground(.hidden)
-              .background(inputBackgroundColor) 
+              .background(inputBackgroundColor)
+              .labelsHidden()
           }
         }.padding(.horizontal, 50)
       }
