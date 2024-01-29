@@ -21,19 +21,65 @@ struct InspectionView: View {
       if(inspection.isPassportHolder){
         Text("Is a Passport Holder")
       }
-    }.padding(.horizontal, 20)
+    }.padding(.horizontal, Constants.basePadding)
     CustomDivider()
     
     //MARK: Basic information section
-    Section(header: HeaderText(header: "Basic Information")) {
-      
+      Section(header: HeaderText(header: "Basic Information")) {
+        VStack{
+          HStack {
+            VStack(alignment: .leading){
+              InputTextLabel(text: "Province/State of Boat Residence")
+              Picker("ProvinceStateLabel", selection: $inspection.provinceOfResidence){
+                ForEach(ProvinceState, id: \.self) { option in
+                  Text(option)}
+              }
+              .disabled(!isEditable)
+              .labelsHidden()
+              .background(inputBackgroundColor)
+            }
+            Spacer().frame(width: 50)
+            VStack(alignment: .leading){
+              InputTextLabel(text: "Time of Inspection")
+              DatePicker("Time of Inspection", selection: $inspection.inspectionTime, displayedComponents: .hourAndMinute).labelsHidden()
+            }
+          }.padding(.horizontal, Constants.basePadding)
+          Grid {
+            GridRow{
+              CustomizedIntStepper(title: "Non-Motorized", step: $inspection.nonMotorized)
+              CustomizedIntStepper(title: "Simple", step: $inspection.simple)
+              CustomizedIntStepper(title: "Complex", step: $inspection.complex)
+              CustomizedIntStepper(title: "Very Complex", step: $inspection.veryComplex)
+            }
+          }.padding(.horizontal, Constants.basePadding)
+        }
     }
     CustomDivider()
     
     //MARK: Watercraft Details section
     Section(header: HeaderText(header: "Watercraft Details")) {
-      
-    }
+      HStack{
+        CustomizedIntStepper(title: "Number of people in the party", step: $inspection.numberOfPeopleInParty)
+        Spacer().frame(width: 100)
+        CustomizedSegmentedPicker(title: "Watercraft/equipment commercially hauled", value: $inspection.commerciallyHauled)
+        Spacer()
+      }
+      HStack{
+        CustomizedSegmentedPicker(title: "Previous Knowledge of AIS or Clean, Drain, Dry", value: $inspection.previousAISKnowledge)
+        Spacer()
+      }
+      if(inspection.previousAISKnowledge){
+        HStack{
+          InputTextLabel(text: "Source")
+          Picker("Source", selection: $inspection.previousInspectionSource) {
+            ForEach(CleanDrainDryKnowledge, id: \.self) { option in
+              Text(option)
+            }
+          }.disabled(!isEditable)
+          Spacer()
+        }
+      }
+    }.padding([.horizontal, .bottom], Constants.basePadding)
     CustomDivider()
     
     //MARK: Journey Details section

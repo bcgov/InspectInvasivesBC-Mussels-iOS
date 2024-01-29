@@ -26,7 +26,7 @@ class InspectionModel : Identifiable, ObservableObject {
   // Province of residence
   @Published var countryProvince: String = ""
   // Key for Remote DB
-  @Published var provinceOfResidence = ""
+  @Published var provinceOfResidence = ProvinceState[0]
   @Published var countryOfResidence = ""
   @Published var nonMotorized: Int = 0
   @Published var simple: Int = 0
@@ -36,8 +36,8 @@ class InspectionModel : Identifiable, ObservableObject {
   @Published var numberOfPeopleInParty: Int = 0
   @Published var commerciallyHauled: Bool = false
   @Published var highRiskArea: Bool = false
-  @Published var previousAISKnowlede: Bool = false
-  @Published var previousAISKnowledeSource: String = ""
+  @Published var previousAISKnowledge: Bool = false
+  @Published var previousAISKnowledgeSource: String = "Select Source"
   @Published var previousInspection: Bool = false
   @Published var previousInspectionSource: String = ""
   @Published var previousInspectionDays: String = ""

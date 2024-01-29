@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41A1204E2B684C630042EBEF /* CustomizedIntStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A1204D2B684C630042EBEF /* CustomizedIntStepper.swift */; };
+		41A120502B6855420042EBEF /* CustomizedSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A1204F2B6855420042EBEF /* CustomizedSegmentedPicker.swift */; };
+		41A120522B6865AC0042EBEF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A120512B6865AC0042EBEF /* Constants.swift */; };
 		41CDD6252B3F93E60051F623 /* Invasives_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDD6242B3F93E60051F623 /* Invasives_iOSApp.swift */; };
 		41CDD6292B3F93E80051F623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41CDD6282B3F93E80051F623 /* Assets.xcassets */; };
 		41CDD62C2B3F93E80051F623 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41CDD62B2B3F93E80051F623 /* Preview Assets.xcassets */; };
@@ -54,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41A1204D2B684C630042EBEF /* CustomizedIntStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedIntStepper.swift; sourceTree = "<group>"; };
+		41A1204F2B6855420042EBEF /* CustomizedSegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedSegmentedPicker.swift; sourceTree = "<group>"; };
+		41A120512B6865AC0042EBEF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		41CDD6212B3F93E60051F623 /* Invasives-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Invasives-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41CDD6242B3F93E60051F623 /* Invasives_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invasives_iOSApp.swift; sourceTree = "<group>"; };
 		41CDD6282B3F93E80051F623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -205,6 +211,8 @@
 				41CF5CF62B606618007F2B77 /* CustomDivider.swift */,
 				41CF5CF92B606962007F2B77 /* InputTextLabel.swift */,
 				41D844002B68221B0015FE18 /* InspectionTable.swift */,
+				41A1204D2B684C630042EBEF /* CustomizedIntStepper.swift */,
+				41A1204F2B6855420042EBEF /* CustomizedSegmentedPicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -215,6 +223,7 @@
 				41CF5CF02B6061D9007F2B77 /* colors.swift */,
 				41D9B4F82B5260D2006BB480 /* StringConstants.swift */,
 				41D844022B68264B0015FE18 /* Enums.swift */,
+				41A120512B6865AC0042EBEF /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -349,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A120522B6865AC0042EBEF /* Constants.swift in Sources */,
 				41CF5CF12B6061D9007F2B77 /* colors.swift in Sources */,
 				41CDD65E2B3FA1CA0051F623 /* MajorCityPicker.swift in Sources */,
 				41CDD6522B3F94A40051F623 /* ShiftModel.swift in Sources */,
@@ -360,6 +370,7 @@
 				41CDD6252B3F93E60051F623 /* Invasives_iOSApp.swift in Sources */,
 				41CDD6582B3FA1380051F623 /* HomeView.swift in Sources */,
 				41D844032B68264B0015FE18 /* Enums.swift in Sources */,
+				41A120502B6855420042EBEF /* CustomizedSegmentedPicker.swift in Sources */,
 				41CDD6602B3FA1E30051F623 /* WaterbodyPicker.swift in Sources */,
 				41D9B4F72B525E51006BB480 /* BlowbyTable.swift in Sources */,
 				41D844012B68221B0015FE18 /* InspectionTable.swift in Sources */,
@@ -368,6 +379,7 @@
 				41D9B4F52B525BD1006BB480 /* EmptyTable.swift in Sources */,
 				41CDD6562B3FA1290051F623 /* MainView.swift in Sources */,
 				41CF5CF52B606382007F2B77 /* HeaderText.swift in Sources */,
+				41A1204E2B684C630042EBEF /* CustomizedIntStepper.swift in Sources */,
 				41CF5CFA2B606962007F2B77 /* InputTextLabel.swift in Sources */,
 				41D011D82B4DEF8C007437BC /* BlowbyModel.swift in Sources */,
 				41CDD6542B3F94CC0051F623 /* InspectionModel.swift in Sources */,

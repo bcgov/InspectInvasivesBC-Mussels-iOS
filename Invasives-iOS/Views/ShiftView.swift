@@ -26,7 +26,7 @@ struct ShiftView: View {
           shift.getStatusComponent()
           Spacer();
         }.padding()
-      }.padding(.horizontal, 20)
+      }.padding(.horizontal, Constants.basePadding)
       
       
       // MARK: Inspections Section
@@ -43,7 +43,7 @@ struct ShiftView: View {
         }
         CustomDivider()
       }
-        .padding(.horizontal, 20))
+        .padding(.horizontal, Constants.basePadding))
       {
         InspectionTable(inspections: $shift.boatsInspected, isEditable: isEditable)
       }
@@ -61,7 +61,7 @@ struct ShiftView: View {
         }
         CustomDivider()
       }
-        .padding(.horizontal, 20))
+        .padding(.horizontal, Constants.basePadding))
       {
         // MARK: Blowby Table
         BlowbyTable(blowBys: $shift.blowBys, isEditable: isEditable)
@@ -70,16 +70,16 @@ struct ShiftView: View {
       HStack{
         HeaderText(header: StringConstants.ShiftView.shiftInformationHeader)
         Spacer()
-      }.padding(.horizontal, 20)
+      }.padding(.horizontal, Constants.basePadding)
       CustomDivider()
-        .padding([.horizontal, .bottom], 20)
+        .padding([.horizontal, .bottom], Constants.basePadding)
       
       Section(header: VStack{
         HStack{
           HeaderText(header: StringConstants.ShiftView.shiftStartHeader)
           Spacer()
         }
-      }.padding(.horizontal, 20))
+      }.padding(.horizontal, Constants.basePadding))
       {
         VStack{
           HStack{
@@ -104,13 +104,13 @@ struct ShiftView: View {
       }
       Spacer().frame(height: 50)
       CustomDivider()
-        .padding([.horizontal, .bottom], 20)
+        .padding([.horizontal, .bottom], Constants.basePadding)
       Section(header: VStack{
         HStack{
           HeaderText(header: StringConstants.ShiftView.shiftEndHeader)
           Spacer()
         }
-      }.padding(.horizontal, 20))
+      }.padding(.horizontal, Constants.basePadding))
       {
         VStack{
           HStack{
