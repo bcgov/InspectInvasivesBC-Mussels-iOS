@@ -21,11 +21,3 @@ struct BlowbyModel: Identifiable, Observable {
     return dateFormatter.string(from: date)
   }
 }
-
-/// Types of Complexities for a Blowby
-enum Complexity: String, CaseIterable {
-  case NonMotorized = "Non-Motorized"
-  case Simple = "Simple"
-  case Complex = "Complex"
-  case VeryComplex = "Very Complex"
-}

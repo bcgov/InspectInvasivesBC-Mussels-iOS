@@ -8,14 +8,6 @@
 import Foundation
 import SwiftUI
 
-/// <#Description#>
-enum Status: String, CaseIterable {
-  case Draft = "Draft"
-  case Complete = "Complete"
-  case Incomplete = "Incomplete"
-  case Pending = "Pending"
-}
-
 /// Shift model contains all relevant information to a shift, and encompasses two smaller models
 /// Watercraft Inspections and Blowbys
 class ShiftModel: Identifiable, ObservableObject {
@@ -27,7 +19,7 @@ class ShiftModel: Identifiable, ObservableObject {
   @Published var shift_start_comment: String;
   @Published var shift_end_comment: String = "";
   @Published var status: Status = Status.Draft;
-  //   @Published var boatsInspected: [WatercraftInspection] = [];
+  @Published var boatsInspected: [InspectionModel] = [];
   @Published var k9_on_shift: Bool = false;
   @Published var boats_inspected_during_shift: Bool = false;
   var observer_workflow_id: Int = -1;
@@ -47,6 +39,11 @@ class ShiftModel: Identifiable, ObservableObject {
     return dateFormatter.string(from: date)
   }
   
+  func addInspection() {
+    boatsInspected.append(InspectionModel());
+  }
+  
+  
   func addBlowby() {
     blowBys.append(BlowbyModel());
   }
@@ -56,9 +53,9 @@ class ShiftModel: Identifiable, ObservableObject {
   func getStatusComponent() -> some View {
     var color: Color;
     switch self.status {
-    case .Complete: color = Color.green;
-    case .Pending: color = Color.yellow;
-    default: color = Color.gray;
+      case .Complete: color = Color.green;
+      case .Pending: color = Color.yellow;
+      default: color = Color.gray;
     }
     return HStack {
       Image(systemName: StringConstants.AppIcon.shiftStatus).foregroundColor(color)

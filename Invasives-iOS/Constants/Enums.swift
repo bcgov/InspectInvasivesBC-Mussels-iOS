@@ -5,14 +5,18 @@
 //  Created by Matthew Logan on 2024-01-29.
 //
 
-import SwiftUI
-
-struct Enums: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+/// Enumerator for tracking statuses of Shifts and Inspections
+enum Status: String, CaseIterable {
+  case Draft = "Draft"
+  case Complete = "Complete"
+  case Incomplete = "Incomplete"
+  case Pending = "Pending"
 }
 
-#Preview {
-    Enums()
+/// Types of Complexities for a Blowby
+enum Complexity: String, CaseIterable {
+  case NonMotorized = "Non-Motorized"
+  case Simple = "Simple"
+  case Complex = "Complex"
+  case VeryComplex = "Very Complex"
 }
