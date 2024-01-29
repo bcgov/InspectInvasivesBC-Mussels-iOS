@@ -11,7 +11,7 @@ struct EmptyTable: View {
   var collection: String;
     var body: some View {
       VStack {
-        Image(systemName: "folder.fill.badge.plus")
+        Image(systemName: StringConstants.AppIcon.emptyCollection)
           .resizable()
           .scaledToFit()
           .foregroundColor(.gray)

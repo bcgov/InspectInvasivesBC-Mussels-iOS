@@ -15,22 +15,22 @@ struct HomeView: View {
       Button(action: {
         shifts.addNewShift();
       }) {
-        Image(systemName: "plus")
-        Text("Add New Shift");
+        Image(systemName: StringConstants.AppIcon.addIcon)
+        Text(StringConstants.HomeView.newShiftLabel);
       }.padding(.trailing)
     }
     if shifts.entries.count > 0 {
       Table($shifts.entries){
-        TableColumn("Shift ID") { $entry in
+        TableColumn(StringConstants.HomeView.shiftIDLabel) { $entry in
           Text(entry.shiftID.uuidString)
         }
-        TableColumn("Shift Date") { $entry in
+        TableColumn(StringConstants.HomeView.shiftDateLabel) { $entry in
           Text(entry.formattedDate(date: entry.shiftStartDate))
         }
-        TableColumn("Station Location") { $entry in
+        TableColumn(StringConstants.HomeView.stationLocationLabel) { $entry in
           Text(entry.station)
         }
-        TableColumn("Status") { $entry in
+        TableColumn(StringConstants.HomeView.statusLabel) { $entry in
           HStack {
             entry.getStatusComponent()
           }
@@ -38,20 +38,20 @@ struct HomeView: View {
         TableColumn("") { $entry in
           NavigationLink(
             destination: ShiftView(shift: entry, isEditable: entry.status != Status.Complete)) {
-              Text("View")
+              Text(StringConstants.HomeView.viewTextLabel)
                 .foregroundColor(Color.blue)
             }.swipeActions(edge: .trailing) {
               Button(role: .destructive) {
                 shifts.entries.removeAll(where: {$0.id == $entry.id})
               } label: {
-                Label("Delete", systemImage: "trash")
+                Label(StringConstants.HomeView.deleteLabel, systemImage: StringConstants.AppIcon.deleteIcon)
               }
             }
         }
       }.foregroundColor(Color.black)
     } else {
       Spacer().frame(height: 120)
-      EmptyTable(collection: "Shifts")
+      EmptyTable(collection: StringConstants.HomeView.emptyShiftTable)
       Spacer()
     }
   }

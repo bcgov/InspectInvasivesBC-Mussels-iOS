@@ -9,17 +9,17 @@ import SwiftUI
 
 struct HeaderText: View {
   var header: String;
-    var body: some View {
-      Text(header)
-        .font(.system(size: 22))
-        .bold()
-        .foregroundColor(bcBlueColor)
-        .padding(.leading)
-    }
+  var body: some View {
+    Text(header)
+      .font(.system(size: 22))
+      .bold()
+      .foregroundColor(bcBlueColor)
+      .padding(.leading)
+  }
 }
 
 #Preview {
-  var header: String = "The quick brown fox jumps over the lazy dog";
+  let header: String = "The quick brown fox jumps over the lazy dog";
   return VStack {
     HeaderText(header: header);
     HeaderText(header: header.uppercased());
