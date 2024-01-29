@@ -8,11 +8,72 @@
 import SwiftUI
 
 struct InspectionView: View {
+  @ObservedObject var inspection: InspectionModel;
+  let isEditable: Bool;
   var body: some View {
-    Text("InspectionView")
+    //MARK: Passport Holder Check
+    Section(header: HeaderText(header: "Passport Information")) {
+      HStack{
+        InputTextLabel(text: "Is this a Passport Holder?")
+        Toggle("Is this a Passport Holder?", isOn: $inspection.isPassportHolder).labelsHidden()
+        Spacer()
+      }
+      if(inspection.isPassportHolder){
+        Text("Is a Passport Holder")
+      }
+    }.padding(.horizontal, 20)
+    CustomDivider()
+    
+    //MARK: Basic information section
+    Section(header: HeaderText(header: "Basic Information")) {
+      
+    }
+    CustomDivider()
+    
+    //MARK: Watercraft Details section
+    Section(header: HeaderText(header: "Watercraft Details")) {
+      
+    }
+    CustomDivider()
+    
+    //MARK: Journey Details section
+    Section(header: HeaderText(header: "Journey Details")) {
+      Spacer().frame(height: 40)
+      VStack{
+        HeaderText(header: "Previous Waterbody")
+        VStack {
+          Text("Previous Details")
+        }
+        HeaderText(header: "Destination Waterbody")
+        VStack {
+          Text("Destination Details")
+        }
+      }
+    }
+    CustomDivider()
+    
+    //MARK: Inspection Details Section
+    Section(header: HeaderText(header: "Inspection Details")) {
+      
+    }
+    CustomDivider()
+    
+    //MARK: High Risk Assessment section
+    Section(header: HeaderText(header: "High Risk Assessment Fields")) {
+      
+    }
+    CustomDivider()
+    
+    //MARK: Inspection Comments section
+    Section(header: HeaderText(header: "Comments")) {
+      
+    }
+    Spacer()
   }
 }
 
 #Preview {
-  InspectionView()
+  @State var inspection: InspectionModel = InspectionModel();
+  let isEditable: Bool = true;
+  return InspectionView(inspection: inspection, isEditable: isEditable);
 }
