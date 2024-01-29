@@ -17,11 +17,20 @@ var Stations: [String]  = [
 ].sorted()
 
 var ProvinceState: [String] = [
+  "Select Province",
   "British Columbia - BC",
   "Alberta - AB",
   "California - CA",
-];
+].sorted();
 
+var CleanDrainDryKnowledge: [String] = [
+  "Select Source",
+  "Internet",
+  "Facebook",
+  "Instagram",
+  "Local Government",
+  "Radio",
+].sorted();
 /// Text content of application, centralized in one place for ease of updating
 /// Broken down into structs representing corresponding views or purpose
 struct StringConstants {
