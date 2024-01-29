@@ -17,7 +17,7 @@ struct HeaderText: View {
         .foregroundColor(bcBlueColor)
         .padding(.leading)
       Spacer()
-    }
+    }.padding(.bottom, Constants.basePadding)
   }
 }
 
