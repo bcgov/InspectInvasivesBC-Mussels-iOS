@@ -71,7 +71,7 @@ struct InspectionView: View {
       if(inspection.previousAISKnowledge){
         HStack{
           InputTextLabel(text: "Source")
-          Picker("Source", selection: $inspection.previousInspectionSource) {
+          Picker("Source", selection: $inspection.previousAISKnowledgeSource) {
             ForEach(CleanDrainDryKnowledge, id: \.self) { option in
               Text(option)
             }
@@ -79,20 +79,62 @@ struct InspectionView: View {
           Spacer()
         }
       }
+      HStack{
+        CustomizedSegmentedPicker(title: "Previous Inspection and/or agency notification", value: $inspection.previousInspection)
+        Spacer()
+      }
+      if(inspection.previousInspection){
+        VStack(alignment: .leading){
+          HStack {
+          InputTextLabel(text: "Source")
+            Picker("Source", selection: $inspection.previousInspectionSource) {
+              ForEach(PreviousInspectionSource, id: \.self) { option in
+                Text(option)
+              }
+            }.disabled(!isEditable)
+            Spacer()
+          }
+          HStack {
+            InputTextLabel(text: "No. of days")
+            Picker("Source", selection: $inspection.previousInspectionDays) {
+              ForEach(daysFromInspection, id: \.self) { option in
+                Text(option)
+              }
+            }.disabled(!isEditable)
+            Spacer()
+          }
+        }
+      }
     }.padding([.horizontal, .bottom], Constants.basePadding)
     CustomDivider()
     
     //MARK: Journey Details section
     Section(header: HeaderText(header: "Journey Details")) {
-      Spacer().frame(height: 40)
       VStack{
         HeaderText(header: "Previous Waterbody")
         VStack {
-          Text("Previous Details")
+          NavigationLink(destination: WaterbodyPicker()) {
+            Text("Add Previous Water Body")
+          }
+          NavigationLink(destination: MajorCityPicker()) {
+            Text("Add Closest Major City")
+          }
         }
-        HeaderText(header: "Destination Waterbody")
+        
         VStack {
-          Text("Destination Details")
+          HeaderText(header: "Destination Waterbody")
+          VStack() {
+            NavigationLink(destination: WaterbodyPicker()) {
+              Text("Add Destination Water Body")
+            }.disabled(!isEditable
+                       || inspection.commercialManufacturerAsPreviousWaterBody
+                       || inspection.unknownPreviousWaterBody
+                       || inspection.previousDryStorage
+            )
+            NavigationLink(destination: MajorCityPicker()) {
+              Text("Add Closest Major City")
+            }
+          }
         }
       }
     }
@@ -100,7 +142,7 @@ struct InspectionView: View {
     
     //MARK: Inspection Details Section
     Section(header: HeaderText(header: "Inspection Details")) {
-      
+        
     }
     CustomDivider()
     

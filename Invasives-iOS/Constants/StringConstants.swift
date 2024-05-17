@@ -31,6 +31,23 @@ var CleanDrainDryKnowledge: [String] = [
   "Local Government",
   "Radio",
 ].sorted();
+
+var PreviousInspectionSource: [String] = [
+  "Select Source",
+  "Internet",
+  "Facebook",
+  "Instagram",
+  "Local Government",
+  "Radio",
+].sorted();
+
+var daysFromInspection: [String] = [
+  "Select Source",
+  "Same Day",
+  "< 30 Days",
+  ">= 30 days",
+  "> 1 Year",
+]
 /// Text content of application, centralized in one place for ease of updating
 /// Broken down into structs representing corresponding views or purpose
 struct StringConstants {

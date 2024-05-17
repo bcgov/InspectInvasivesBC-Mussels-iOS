@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		411ECA472BF7DB5D00B2F787 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 411ECA452BF7DB5D00B2F787 /* Model.xcdatamodeld */; };
 		41A1204E2B684C630042EBEF /* CustomizedIntStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A1204D2B684C630042EBEF /* CustomizedIntStepper.swift */; };
 		41A120502B6855420042EBEF /* CustomizedSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A1204F2B6855420042EBEF /* CustomizedSegmentedPicker.swift */; };
 		41A120522B6865AC0042EBEF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A120512B6865AC0042EBEF /* Constants.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		411ECA462BF7DB5D00B2F787 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		41A1204D2B684C630042EBEF /* CustomizedIntStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedIntStepper.swift; sourceTree = "<group>"; };
 		41A1204F2B6855420042EBEF /* CustomizedSegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedSegmentedPicker.swift; sourceTree = "<group>"; };
 		41A120512B6865AC0042EBEF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -117,6 +119,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		411ECA382BF7AC2800B2F787 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				411ECA452BF7DB5D00B2F787 /* Model.xcdatamodeld */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		41CDD6182B3F93E60051F623 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +150,7 @@
 		41CDD6232B3F93E60051F623 /* Invasives-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				411ECA382BF7AC2800B2F787 /* Persistence */,
 				41CF5CEF2B6061C6007F2B77 /* Constants */,
 				41CDD65B2B3FA1A90051F623 /* Components */,
 				41CDD6502B3F94900051F623 /* Models */,
@@ -369,6 +380,7 @@
 				41D011DC2B4E006E007437BC /* ShiftView.swift in Sources */,
 				41CDD6252B3F93E60051F623 /* Invasives_iOSApp.swift in Sources */,
 				41CDD6582B3FA1380051F623 /* HomeView.swift in Sources */,
+				411ECA472BF7DB5D00B2F787 /* Model.xcdatamodeld in Sources */,
 				41D844032B68264B0015FE18 /* Enums.swift in Sources */,
 				41A120502B6855420042EBEF /* CustomizedSegmentedPicker.swift in Sources */,
 				41CDD6602B3FA1E30051F623 /* WaterbodyPicker.swift in Sources */,
@@ -712,6 +724,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		411ECA452BF7DB5D00B2F787 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				411ECA462BF7DB5D00B2F787 /* Model.xcdatamodel */,
+			);
+			currentVersion = 411ECA462BF7DB5D00B2F787 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 41CDD6192B3F93E60051F623 /* Project object */;
 }

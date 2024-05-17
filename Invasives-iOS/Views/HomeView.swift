@@ -58,5 +58,5 @@ struct HomeView: View {
 }
 
 #Preview {
-  HomeView().environmentObject(ShiftModels())
+  HomeView().environmentObject(ShiftModels(previewMode: false))
 }
