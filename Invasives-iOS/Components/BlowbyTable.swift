@@ -7,10 +7,12 @@
 
 import SwiftUI
 
+
 struct BlowbyTable: View {
   @Binding var blowBys: [BlowbyModel]
   var isEditable: Bool;
-    var body: some View {
+  var body: some View {
+    if (blowBys.count > 0) {
       Table($blowBys){
         TableColumn(StringConstants.BlowbyTable.reportedToRapp){ $entry in
           HStack{
@@ -40,9 +42,14 @@ struct BlowbyTable: View {
         }
       }.foregroundColor(Color.black)
     }
+    else {
+      EmptyTable(collection: StringConstants.ShiftView.blowbyHeader)
+    }
+  }
 }
 
 #Preview {
-  @State var blowBys: [BlowbyModel] = [];
+//  @State var blowBys: [BlowbyModel] = [];
+  @State var blowBys: [BlowbyModel] = [BlowbyModel(), BlowbyModel()];
   return BlowbyTable(blowBys: $blowBys, isEditable: true)
 }

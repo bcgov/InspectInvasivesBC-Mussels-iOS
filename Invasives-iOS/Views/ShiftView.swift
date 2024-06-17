@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ShiftView: View {
   @ObservedObject var shift: ShiftModel;
-  
+  @EnvironmentObject var shifts: ShiftModels;
   var isEditable: Bool;
   var body: some View {
     // MARK: Title Section, displays Shift ID, Date, Status
@@ -26,7 +26,7 @@ struct ShiftView: View {
           shift.getStatusComponent()
           Spacer();
         }.padding()
-      }.padding(.horizontal, 20)
+      }.padding(.horizontal, Constants.basePadding)
       
       
       // MARK: Inspections Section
@@ -37,15 +37,15 @@ struct ShiftView: View {
           if(isEditable){
             Image(systemName: StringConstants.AppIcon.addIcon).foregroundColor(.blue);
             Button(StringConstants.ShiftView.addInspectionsLabel, action: {
-              print("Add Inspection Button");
+              shift.addInspection();
             });
           }
         }
         CustomDivider()
       }
-        .padding(.horizontal, 20))
+        .padding(.horizontal, Constants.basePadding))
       {
-        EmptyTable(collection: StringConstants.ShiftView.inspectionsHeader)
+        InspectionTable(inspections: $shift.boatsInspected, isEditable: isEditable)
       }
       // MARK: Blowby Section
       Section(header: VStack{
@@ -61,29 +61,25 @@ struct ShiftView: View {
         }
         CustomDivider()
       }
-        .padding(.horizontal, 20))
+        .padding(.horizontal, Constants.basePadding))
       {
         // MARK: Blowby Table
-        if (shift.blowBys.count > 0) {
-          BlowbyTable(blowBys: $shift.blowBys, isEditable: isEditable)
-        } else {
-          EmptyTable(collection: StringConstants.ShiftView.blowbyHeader)
-        }
+        BlowbyTable(blowBys: $shift.blowBys, isEditable: isEditable)
       }
       Spacer()
       HStack{
         HeaderText(header: StringConstants.ShiftView.shiftInformationHeader)
         Spacer()
-      }.padding(.horizontal, 20)
+      }.padding(.horizontal, Constants.basePadding)
       CustomDivider()
-        .padding([.horizontal, .bottom], 20)
+        .padding([.horizontal, .bottom], Constants.basePadding)
       
       Section(header: VStack{
         HStack{
           HeaderText(header: StringConstants.ShiftView.shiftStartHeader)
           Spacer()
         }
-      }.padding(.horizontal, 20))
+      }.padding(.horizontal, Constants.basePadding))
       {
         VStack{
           HStack{
@@ -108,13 +104,13 @@ struct ShiftView: View {
       }
       Spacer().frame(height: 50)
       CustomDivider()
-        .padding([.horizontal, .bottom], 20)
+        .padding([.horizontal, .bottom], Constants.basePadding)
       Section(header: VStack{
         HStack{
           HeaderText(header: StringConstants.ShiftView.shiftEndHeader)
           Spacer()
         }
-      }.padding(.horizontal, 20))
+      }.padding(.horizontal, Constants.basePadding))
       {
         VStack{
           HStack{
@@ -159,6 +155,9 @@ struct ShiftView: View {
           }
         }.padding(.leading)
       }
+    }.onDisappear {
+      shift.validateShift();
+      shifts.saveObjects();
     }
   }
 }

@@ -10,11 +10,14 @@ import SwiftUI
 struct HeaderText: View {
   var header: String;
   var body: some View {
-    Text(header)
-      .font(.system(size: 22))
-      .bold()
-      .foregroundColor(bcBlueColor)
-      .padding(.leading)
+    HStack{
+      Text(header)
+        .font(.system(size: 22))
+        .bold()
+        .foregroundColor(bcBlueColor)
+        .padding(.leading)
+      Spacer()
+    }.padding(.bottom, Constants.basePadding)
   }
 }
 

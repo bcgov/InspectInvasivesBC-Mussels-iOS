@@ -16,6 +16,70 @@ var Stations: [String]  = [
   "Richmond"
 ].sorted()
 
+var ProvinceState: [String] = [
+  "Select Province",
+  "British Columbia - BC",
+  "Alberta - AB",
+  "California - CA",
+].sorted { a, b in
+  if a == "Select Province" {
+      return true
+  } else if b == "Select Province" {
+      return false
+  } else {
+      return a < b
+  }
+}
+
+var CleanDrainDryKnowledge: [String] = [
+  "Select Source",
+  "Internet",
+  "Facebook",
+  "Instagram",
+  "Local Government",
+  "Radio",
+].sorted { a, b in
+  if a == "Select Source" {
+      return true
+  } else if b == "Select Source" {
+      return false
+  } else {
+      return a < b
+  }
+}
+
+var PreviousInspectionSource: [String] = [
+  "Select Source",
+  "Internet",
+  "Facebook",
+  "Instagram",
+  "Local Government",
+  "Radio",
+].sorted { a, b in
+  if a == "Select Source" {
+      return true
+  } else if b == "Select Source" {
+      return false
+  } else {
+      return a < b
+  }
+}
+
+var daysFromInspection: [String] = [
+  "Select Time Since Inspection",
+  "Same Day",
+  "< 30 Days",
+  ">= 30 days",
+  "> 1 Year",
+].sorted { a, b in
+  if a == "Select Source" {
+      return true
+  } else if b == "Select Source" {
+      return false
+  } else {
+      return a < b
+  }
+}
 /// Text content of application, centralized in one place for ease of updating
 /// Broken down into structs representing corresponding views or purpose
 struct StringConstants {
@@ -47,7 +111,7 @@ struct StringConstants {
   }
   
   struct ShiftView {
-    static let shiftOverviewHeader: String = "ShiftOverview";
+    static let shiftOverviewHeader: String = "Shift Overview";
     static let inspectionsHeader: String = "Inspections";
     static let addInspectionsLabel: String = "Add Inspection";
     static let blowbyHeader: String = "Blowbys";
@@ -64,6 +128,13 @@ struct StringConstants {
     static let boatsInspectedLabel: String = "Boats Inspected"
   }
   
+  struct InspectionTable {
+    static let idHeader: String = "ID";
+    static let riskLevelHeader: String = "Risk Level";
+    static let timeAddedHeader: String = "Time Added";
+    static let statusLabel: String = "Status";
+    static let emptyTable: String = "Inspections";
+  }
   struct BlowbyTable {
     static let reportedToRapp: String = "Reported To Rapp";
     static let watercraftComplexity: String = "Watercraft Complexity";

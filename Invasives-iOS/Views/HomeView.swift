@@ -31,9 +31,7 @@ struct HomeView: View {
           Text(entry.station)
         }
         TableColumn(StringConstants.HomeView.statusLabel) { $entry in
-          HStack {
-            entry.getStatusComponent()
-          }
+          entry.getStatusComponent()
         }
         TableColumn("") { $entry in
           NavigationLink(
@@ -58,5 +56,6 @@ struct HomeView: View {
 }
 
 #Preview {
-  HomeView().environmentObject(ShiftModels())
+  @StateObject var shifts: ShiftModels = ShiftModels()
+  return HomeView().environmentObject(shifts)
 }

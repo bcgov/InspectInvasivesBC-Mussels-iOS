@@ -10,13 +10,12 @@ import SwiftUI
 struct MainView: View {
   @State var loggedIn: Bool = false;
   @State private var showSettings = false
-  @StateObject var shifts: ShiftModels = ShiftModels()
-  
+  @Environment(\.scenePhase) var scenePhase
   var body: some View {
     if(loggedIn){
       NavigationStack() {
         VStack() {
-          HomeView().environmentObject(shifts).navigationTitle(StringConstants.MainView.appTitle)
+          HomeView().navigationTitle(StringConstants.MainView.appTitle)
         }.toolbar{
           ToolbarItem(placement: .navigationBarTrailing) {
             NavigationLink(destination: SettingsView()) {
@@ -37,5 +36,6 @@ struct MainView: View {
 }
 
 #Preview {
-  MainView(loggedIn: true)
+  @StateObject var shifts: ShiftModels = ShiftModels()
+  return MainView(loggedIn: true).environmentObject(shifts)
 }
