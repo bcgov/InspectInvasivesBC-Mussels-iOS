@@ -36,5 +36,6 @@ struct MainView: View {
 }
 
 #Preview {
-  MainView(loggedIn: true)
+  @StateObject var shifts: ShiftModels = ShiftModels()
+  return MainView(loggedIn: true).environmentObject(shifts)
 }

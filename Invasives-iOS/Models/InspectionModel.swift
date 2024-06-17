@@ -22,10 +22,8 @@ class InspectionModel: Identifiable, ObservableObject, Codable {
     @Published var decontaminationPerformed: Bool = false
     @Published var marineSpeciesFound: Bool = false
     @Published var aquaticPlantsFound: Bool = false
-
-    // Province of residence
+  
     @Published var countryProvince: String = ""
-    // Key for Remote DB
     @Published var provinceOfResidence = ProvinceState[0]
     @Published var countryOfResidence = ""
     @Published var nonMotorized: Int = 0
@@ -41,14 +39,16 @@ class InspectionModel: Identifiable, ObservableObject, Codable {
     @Published var previousInspection: Bool = false
     @Published var previousInspectionSource: String = ""
     @Published var previousInspectionDays: String = ""
-    // Inspection Details
+    // Inspection Details Flags
     @Published var marineMusselsFound: Bool = false
     @Published var cleanDrainDryAfterInspection: Bool = false
     @Published var dreissenidMusselsFoundPrevious: Bool = false
-    // Dry Storage
+    @Published var watercraftHasDrainplugs: Bool = false
+    @Published var drainplugRemovedAtInspection: Bool = false
+    // Dry Storage Flag
     @Published var previousDryStorage: Bool = false
     @Published var destinationDryStorage: Bool = false
-    // Unknown
+    // Unknown Waterbody Flags
     @Published var unknownPreviousWaterBody: Bool = false
     @Published var unknownDestinationWaterBody: Bool = false
     // Commercial manufacturer
@@ -60,18 +60,35 @@ class InspectionModel: Identifiable, ObservableObject, Codable {
     // General comments
     @Published var generalComments: String = ""
     
-    init() {
-        
+    init() {}
+  
+    /// Validators for BasicInformation Section of Inspection
+    /// - Returns: Basic Information Section is valid
+    func validateBasicInformation() -> Bool {
+      return provinceOfResidence != "Select Province"
     }
-    
+  
+    // TODO: Add all validation Fields
+    /// Checks validation for entire form, skips if Pending or Complete, updates Status
+    /// - Returns: Entire Form passes validation
+    func validateInspection() -> Bool {
+      if self.status == .Complete { return true }
+      
+      let formValid: Bool = validateBasicInformation() // TODO: Chain other validate functions here
+      self.status = formValid ? .Pending : .Draft
+      return formValid
+    }
+  
+    /// Formats Date time object to hours and minutes
+    /// - Returns: Formatted Time string
     func getFormattedTime(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm"
         return dateFormatter.string(from: date)
     }
     
-    /// Creates an Object text pairing showing the current status of the application
-    /// - Returns: HStack holding Icon + Text
+    /// Creates a Component showing status of inspection
+    /// - Returns: HStack containing Icon + Text
     func getStatusComponent() -> some View {
         var color: Color;
         switch self.status {
@@ -85,6 +102,8 @@ class InspectionModel: Identifiable, ObservableObject, Codable {
         }
     }
     
+  // MARK: - Codable Requirements. Used to Persist Data on Application
+  
     enum CodingKeys: String, CodingKey {
         case id, userId, timeStamp, status, isPassportHolder, inspectionTime, passportNumber, launchedOutsideBC, k9Inspection, k9InspectionResults, decontaminationPerformed, marineSpeciesFound, aquaticPlantsFound, countryProvince, provinceOfResidence, countryOfResidence, nonMotorized, simple, complex, veryComplex, numberOfPeopleInParty, commerciallyHauled, highRiskArea, previousAISKnowledge, previousAISKnowledgeSource, previousInspection, previousInspectionSource, previousInspectionDays, marineMusselsFound, cleanDrainDryAfterInspection, dreissenidMusselsFoundPrevious, previousDryStorage, destinationDryStorage, unknownPreviousWaterBody, unknownDestinationWaterBody, commercialManufacturerAsPreviousWaterBody, commercialManufacturerAsDestinationWaterBody, highriskAIS, adultDreissenidFound, generalComments
     }

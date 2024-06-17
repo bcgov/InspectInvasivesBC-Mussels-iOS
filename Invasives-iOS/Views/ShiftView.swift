@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ShiftView: View {
   @ObservedObject var shift: ShiftModel;
-  
+  @EnvironmentObject var shifts: ShiftModels;
   var isEditable: Bool;
   var body: some View {
     // MARK: Title Section, displays Shift ID, Date, Status
@@ -155,6 +155,9 @@ struct ShiftView: View {
           }
         }.padding(.leading)
       }
+    }.onDisappear {
+      shift.validateShift();
+      shifts.saveObjects();
     }
   }
 }

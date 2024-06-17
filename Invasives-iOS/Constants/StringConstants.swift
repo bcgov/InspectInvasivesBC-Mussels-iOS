@@ -21,7 +21,15 @@ var ProvinceState: [String] = [
   "British Columbia - BC",
   "Alberta - AB",
   "California - CA",
-].sorted();
+].sorted { a, b in
+  if a == "Select Province" {
+      return true
+  } else if b == "Select Province" {
+      return false
+  } else {
+      return a < b
+  }
+}
 
 var CleanDrainDryKnowledge: [String] = [
   "Select Source",
@@ -30,7 +38,15 @@ var CleanDrainDryKnowledge: [String] = [
   "Instagram",
   "Local Government",
   "Radio",
-].sorted();
+].sorted { a, b in
+  if a == "Select Source" {
+      return true
+  } else if b == "Select Source" {
+      return false
+  } else {
+      return a < b
+  }
+}
 
 var PreviousInspectionSource: [String] = [
   "Select Source",
@@ -39,15 +55,31 @@ var PreviousInspectionSource: [String] = [
   "Instagram",
   "Local Government",
   "Radio",
-].sorted();
+].sorted { a, b in
+  if a == "Select Source" {
+      return true
+  } else if b == "Select Source" {
+      return false
+  } else {
+      return a < b
+  }
+}
 
 var daysFromInspection: [String] = [
-  "Select Source",
+  "Select Time Since Inspection",
   "Same Day",
   "< 30 Days",
   ">= 30 days",
   "> 1 Year",
-]
+].sorted { a, b in
+  if a == "Select Source" {
+      return true
+  } else if b == "Select Source" {
+      return false
+  } else {
+      return a < b
+  }
+}
 /// Text content of application, centralized in one place for ease of updating
 /// Broken down into structs representing corresponding views or purpose
 struct StringConstants {
