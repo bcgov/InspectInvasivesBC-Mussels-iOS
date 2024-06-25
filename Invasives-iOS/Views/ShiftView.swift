@@ -156,7 +156,7 @@ struct ShiftView: View {
         }.padding(.leading)
       }
     }.onDisappear {
-      shift.validateShift();
+//      shift.validateShift();
       shifts.saveObjects();
     }
   }

@@ -11,32 +11,28 @@ struct InspectionView: View {
   @ObservedObject var inspection: InspectionModel;
   let isEditable: Bool;
   var body: some View {
-    //MARK: Passport Holder Check
-    Section(header: HeaderText(header: "Passport Information")) {
-      HStack{
-        InputTextLabel(text: "Is this a Passport Holder?")
-        Toggle("Is this a Passport Holder?", isOn: $inspection.isPassportHolder).labelsHidden()
-        Spacer()
-      }
-      if(inspection.isPassportHolder){
-        Text("Is a Passport Holder")
-      }
-    }.padding(.horizontal, Constants.basePadding)
-    CustomDivider()
-    
-    //MARK: Basic information section
+    ScrollView {
+      Spacer()
+      //MARK: Passport Holder Check
+      Section(header: HeaderText(header: "Passport Information")) {
+        HStack{
+          InputTextLabel(text: "Is this a Passport Holder?")
+          Toggle("Is this a Passport Holder?", isOn: $inspection.isPassportHolder).labelsHidden()
+          Spacer()
+        }
+        // MARK: Passport Fields
+        if(inspection.isPassportHolder){
+          PassportInformation(inspection: inspection, isEditable: isEditable)
+        }
+      }.padding(.horizontal, Constants.basePadding)
+      CustomDivider()
+      
+      //MARK: Basic information section
       Section(header: HeaderText(header: "Basic Information")) {
         VStack{
           HStack {
             VStack(alignment: .leading){
-              InputTextLabel(text: "Province/State of Boat Residence")
-              Picker("ProvinceStateLabel", selection: $inspection.provinceOfResidence){
-                ForEach(ProvinceState, id: \.self) { option in
-                  Text(option)}
-              }
-              .disabled(!isEditable)
-              .labelsHidden()
-              .background(inputBackgroundColor)
+              CustomizedPicker(title: "Province/State of Boat Residence", value: $inspection.provinceOfResidence, options: ProvinceState)
             }
             Spacer().frame(width: 50)
             VStack(alignment: .leading){
@@ -53,108 +49,109 @@ struct InspectionView: View {
             }
           }.padding(.horizontal, Constants.basePadding)
         }
-    }
-    CustomDivider()
-    
-    //MARK: Watercraft Details section
-    Section(header: HeaderText(header: "Watercraft Details")) {
-      HStack{
-        CustomizedIntStepper(title: "Number of people in the party", step: $inspection.numberOfPeopleInParty)
-        Spacer().frame(width: 100)
-        CustomizedSegmentedPicker(title: "Watercraft/equipment commercially hauled", value: $inspection.commerciallyHauled)
-        Spacer()
       }
-      HStack{
-        CustomizedSegmentedPicker(title: "Previous Knowledge of AIS or Clean, Drain, Dry", value: $inspection.previousAISKnowledge)
-        Spacer()
-      }
-      if(inspection.previousAISKnowledge){
+      CustomDivider()
+      
+      //MARK: Watercraft Details section
+      Section(header: HeaderText(header: "Watercraft Details")) {
         HStack{
-          InputTextLabel(text: "Source")
-          Picker("Source", selection: $inspection.previousAISKnowledgeSource) {
-            ForEach(CleanDrainDryKnowledge, id: \.self) { option in
-              Text(option)
-            }
-          }.disabled(!isEditable)
+          CustomizedIntStepper(title: "Number of people in the party", step: $inspection.numberOfPeopleInParty)
+          Spacer().frame(width: 100)
+          CustomizedSegmentedPicker(title: "Watercraft/equipment commercially hauled", value: $inspection.commerciallyHauled)
           Spacer()
         }
-      }
-      HStack{
-        CustomizedSegmentedPicker(title: "Previous Inspection and/or agency notification", value: $inspection.previousInspection)
-        Spacer()
-      }
-      if(inspection.previousInspection){
-        VStack(alignment: .leading){
-          HStack {
-          InputTextLabel(text: "Source")
-            Picker("Source", selection: $inspection.previousInspectionSource) {
-              ForEach(PreviousInspectionSource, id: \.self) { option in
-                Text(option)
-              }
-            }.disabled(!isEditable)
-            Spacer()
-          }
-          HStack {
-            InputTextLabel(text: "No. of days")
-            Picker("Source", selection: $inspection.previousInspectionDays) {
-              ForEach(daysFromInspection, id: \.self) { option in
+        HStack{
+          CustomizedSegmentedPicker(title: "Previous Knowledge of AIS or Clean, Drain, Dry", value: $inspection.previousAISKnowledge)
+          Spacer()
+        }
+        if(inspection.previousAISKnowledge){
+          HStack{
+            InputTextLabel(text: "Source")
+            Picker("Source", selection: $inspection.previousAISKnowledgeSource) {
+              ForEach(CleanDrainDryKnowledge, id: \.self) { option in
                 Text(option)
               }
             }.disabled(!isEditable)
             Spacer()
           }
         }
-      }
-    }.padding([.horizontal, .bottom], Constants.basePadding)
-    CustomDivider()
-    
-    //MARK: Journey Details section
-    Section(header: HeaderText(header: "Journey Details")) {
-      VStack{
-        HeaderText(header: "Previous Waterbody")
-        VStack {
-          NavigationLink(destination: WaterbodyPicker()) {
-            Text("Add Previous Water Body")
-          }
-          NavigationLink(destination: MajorCityPicker()) {
-            Text("Add Closest Major City")
+        HStack{
+          CustomizedSegmentedPicker(title: "Previous Inspection and/or agency notification", value: $inspection.previousInspection)
+          Spacer()
+        }
+        if(inspection.previousInspection){
+          VStack(alignment: .leading){
+            HStack {
+              InputTextLabel(text: "Source")
+              Picker("Source", selection: $inspection.previousInspectionSource) {
+                ForEach(PreviousInspectionSource, id: \.self) { option in
+                  Text(option)
+                }
+              }.disabled(!isEditable)
+              Spacer()
+            }
+            HStack {
+              InputTextLabel(text: "No. of days")
+              Picker("Source", selection: $inspection.previousInspectionDays) {
+                ForEach(daysFromInspection, id: \.self) { option in
+                  Text(option)
+                }
+              }.disabled(!isEditable)
+              Spacer()
+            }
           }
         }
-        
-        VStack {
-          HeaderText(header: "Destination Waterbody")
-          VStack() {
+      }.padding([.horizontal, .bottom], Constants.basePadding)
+      CustomDivider()
+      
+      //MARK: Journey Details section
+      Section(header: HeaderText(header: "Journey Details")) {
+        VStack{
+          HeaderText(header: "Previous Waterbody")
+          VStack {
             NavigationLink(destination: WaterbodyPicker()) {
-              Text("Add Destination Water Body")
-            }.disabled(!isEditable
-                       || inspection.commercialManufacturerAsPreviousWaterBody
-                       || inspection.unknownPreviousWaterBody
-                       || inspection.previousDryStorage
-            )
+              Text("Add Previous Water Body")
+            }
             NavigationLink(destination: MajorCityPicker()) {
               Text("Add Closest Major City")
             }
           }
+          
+          VStack {
+            HeaderText(header: "Destination Waterbody")
+            VStack() {
+              NavigationLink(destination: WaterbodyPicker()) {
+                Text("Add Destination Water Body")
+              }.disabled(!isEditable
+                         || inspection.commercialManufacturerAsPreviousWaterBody
+                         || inspection.unknownPreviousWaterBody
+                         || inspection.previousDryStorage
+              )
+              NavigationLink(destination: MajorCityPicker()) {
+                Text("Add Closest Major City")
+              }
+            }
+          }
         }
       }
-    }
-    CustomDivider()
-    
-    //MARK: Inspection Details Section
-    Section(header: HeaderText(header: "Inspection Details")) {
+      CustomDivider()
+      
+      //MARK: Inspection Details Section
+      Section(header: HeaderText(header: "Inspection Details")) {
         
-    }
-    CustomDivider()
-    
-    //MARK: High Risk Assessment section
-    Section(header: HeaderText(header: "High Risk Assessment Fields")) {
+      }
+      CustomDivider()
       
-    }
-    CustomDivider()
-    
-    //MARK: Inspection Comments section
-    Section(header: HeaderText(header: "Comments")) {
+      //MARK: High Risk Assessment section
+      Section(header: HeaderText(header: "High Risk Assessment Fields")) {
+        
+      }
+      CustomDivider()
       
+      //MARK: Inspection Comments section
+      Section(header: HeaderText(header: "Comments")) {
+        
+      }
     }
     Spacer()
   }
@@ -162,6 +159,7 @@ struct InspectionView: View {
 
 #Preview {
   @State var inspection: InspectionModel = InspectionModel();
+  inspection.isPassportHolder = true;
   let isEditable: Bool = true;
   return InspectionView(inspection: inspection, isEditable: isEditable);
 }
