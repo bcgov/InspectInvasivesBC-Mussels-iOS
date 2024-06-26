@@ -14,6 +14,7 @@ class InspectionModel: Identifiable, ObservableObject, Codable {
     var timeStamp: Date = Date()
     @Published var status: Status = .Draft
     @Published var isPassportHolder: Bool = false
+    @Published var isNewPassportIssued: Bool = false
     @Published var inspectionTime: Date = Date()
     @Published var passportNumber: String = ""
     @Published var launchedOutsideBC: Bool = false

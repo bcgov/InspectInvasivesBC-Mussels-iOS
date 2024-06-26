@@ -31,6 +31,11 @@ var ProvinceState: [String] = [
   }
 }
 
+var k9Results: [String] = [
+  "",
+  "K9 did indicate",
+  "K9 did not indicate"
+]
 var CleanDrainDryKnowledge: [String] = [
   "Select Source",
   "Internet",
@@ -128,6 +133,17 @@ struct StringConstants {
     static let boatsInspectedLabel: String = "Boats Inspected"
   }
   
+  struct Passport {
+    static let newPassportIssued: String = "Was a new passport issued?"
+    static let inspectionTime: String = "Time of Inspection"
+    static let passportNumber: String = "Passport Number"
+    static let launchedOutsideBC: String = "Launched outside BC/AB in the last 30 days"
+    static let k9InspectionPerformed: String = "K9 Inspection Performed"
+    static let marineSpeciesFound: String = "Marine Species Found?"
+    static let aquaticPlantsFound: String = "Aquatic Plants Found?"
+    static let decontaminationPerformed: String = "Decontamination Performed?"
+    static let k9Results: String = "K9 Results?"
+  }
   struct InspectionTable {
     static let idHeader: String = "ID";
     static let riskLevelHeader: String = "Risk Level";
