@@ -8,6 +8,11 @@
 
 import SwiftUI
 
+/// Common 'Picker' component with defined styling
+/// - Parameters:
+///   - title: Text to display above the picker
+///   - options: String Array of options for picker
+///   - value: Form state to bind to the picker
 struct CustomizedPicker: View {
   let title: String
   @Binding var value: String

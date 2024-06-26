@@ -8,15 +8,21 @@
 
 import SwiftUI
 
+/// Passport Information Sections of Inspection form
+///   - Parameters:
+///     - isEditable: Sets disables form when isEditable == false
+///     - inspection: The current inspection in the form
 struct PassportInformation: View {
   @ObservedObject var inspection: InspectionModel;
   let isEditable: Bool;
   var body: some View {
     VStack(alignment: .leading){
+      // MARK: Row One
       VStack(alignment: .leading){
         InputTextLabel(text: StringConstants.Passport.newPassportIssued);
         Toggle(StringConstants.Passport.newPassportIssued, isOn: $inspection.isNewPassportIssued).labelsHidden()
       }
+      // MARK: RowTwo
       HStack {
         VStack(alignment: .leading){
           InputTextLabel(text: StringConstants.Passport.inspectionTime)
@@ -36,6 +42,7 @@ struct PassportInformation: View {
         }
         Spacer()
       }
+      // MARK: Row Three
       HStack{
         CustomizedSegmentedPicker(title: StringConstants.Passport.k9InspectionPerformed, value: $inspection.k9Inspection)
         if(inspection.k9Inspection){
@@ -52,6 +59,7 @@ struct PassportInformation: View {
           Toggle(StringConstants.Passport.aquaticPlantsFound, isOn: $inspection.aquaticPlantsFound).labelsHidden()
         }
       }.padding(.vertical)
+      // MARK: Row Four
       VStack(alignment: .leading) {
         InputTextLabel(text: StringConstants.Passport.decontaminationPerformed)
         Toggle(StringConstants.Passport.decontaminationPerformed, isOn: $inspection.decontaminationPerformed).labelsHidden()

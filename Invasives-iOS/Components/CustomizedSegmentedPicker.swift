@@ -7,12 +7,16 @@
 
 import SwiftUI
 
+/// A Customized Yes/No radio button picker
+/// - Parameters:
+///    - title: Overhead text to display in component
+///    - value: The boolean component to toggle state on
 struct CustomizedSegmentedPicker: View {
-  func colorPicker(trueState: Bool) -> String {
-    if ( !interacted ) { return "circle" }
-    if ( value == trueState ) { return "circle.fill" }
-    return "circle"
-  }
+  
+  /// Returns the `systemName` for an image based on current conditions
+  ///  - Parameters:
+  ///     - trueState: Condition for the button to be selected "circle.fill", if component isn't interacted it's false by default
+  ///     - Returns: systemName
   func circlePicker(trueState: Bool) -> String {
     if ( !interacted ) { return "circle" }
     if ( value == trueState ) { return "circle.fill" }
@@ -55,6 +59,6 @@ struct CustomizedSegmentedPicker: View {
 
 #Preview {
   @State var value: Bool = false
-  let title: String = "CustomizedSegmentedPicker Title"
+  let title: String = "CustomizedSegmentedPicker"
   return CustomizedSegmentedPicker(title: title, value: $value);
 }
