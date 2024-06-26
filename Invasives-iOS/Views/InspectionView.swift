@@ -144,7 +144,7 @@ struct InspectionView: View {
       
       //MARK: High Risk Assessment section
       Section(header: HeaderText(header: "High Risk Assessment Fields")) {
-        
+        HighRiskFields(inspection: inspection, isEditable: isEditable)
       }
       CustomDivider()
       

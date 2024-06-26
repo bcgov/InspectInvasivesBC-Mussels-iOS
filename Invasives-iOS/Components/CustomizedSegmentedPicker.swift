@@ -19,7 +19,7 @@ struct CustomizedSegmentedPicker: View {
   ///     - Returns: systemName
   func circlePicker(trueState: Bool) -> String {
     if ( !interacted ) { return "circle" }
-    if ( value == trueState ) { return "circle.fill" }
+    if ( value == trueState ) { return "checkmark.circle" }
     return "circle"
   }
   
@@ -30,20 +30,10 @@ struct CustomizedSegmentedPicker: View {
     VStack(alignment: .leading){
       InputTextLabel(text: title)
       HStack {
-        Image(systemName: circlePicker(trueState: true))
-          .resizable()
-          .scaledToFit()
-          .foregroundColor(interacted && value ? .green : .black)
-          .accessibilityLabel("Yes")
-          .onTapGesture{
-            interacted = true
-            value = true
-          }
-        Text("Yes")
-          Spacer()
         Image(systemName: circlePicker(trueState: false))
           .resizable()
           .scaledToFit()
+          .frame(height: 25)
           .foregroundColor(interacted && !value ? .red : .black)
           .accessibilityLabel("No")
           .onTapGesture {
@@ -51,14 +41,25 @@ struct CustomizedSegmentedPicker: View {
             value = false;
           }
         Text("No")
-        Spacer()
+        Spacer().frame(width: 30)
+        Image(systemName: circlePicker(trueState: true))
+          .resizable()
+          .scaledToFit()
+          .frame(height: 25)
+          .foregroundColor(interacted && value ? .green : .black)
+          .accessibilityLabel("Yes")
+          .onTapGesture{
+            interacted = true
+            value = true
+          }
+        Text("Yes")
       }
-    }.frame(width: 200, height: 50)
+    }
   }
 }
 
 #Preview {
   @State var value: Bool = false
-  let title: String = "CustomizedSegmentedPicker"
+  let title: String = "CustomizedSegmentedPicker Header"
   return CustomizedSegmentedPicker(title: title, value: $value);
 }
