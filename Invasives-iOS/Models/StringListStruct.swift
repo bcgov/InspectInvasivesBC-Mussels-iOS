@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+/// Used for Creating/Storing Identifiable compliant Lists for strings
+struct StringListStruct: Identifiable {
+  var id = UUID()
+  var value: String = ""
+}

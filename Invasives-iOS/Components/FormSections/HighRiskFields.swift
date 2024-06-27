@@ -15,12 +15,12 @@ struct HighRiskFields: View {
   let alertedLargerForm: Bool = false;
     var body: some View {
       VStack(alignment: .leading){
-        HeaderText(header: "High Risk Assessment Fields")
-        CustomizedSegmentedPicker(title: "The watercraft is NOT Clean, Drain, Dry after full inspection and further action must be taken AND/OR a full inspection cannot be completed", value: $inspection.cleanDrainDryAfterInspection)
+        HeaderText(header: "High Risk Assessment Fields").padding(.leading, -Constants.basePadding)
+        CustomizedSegmentedPicker(title: "The watercraft is NOT Clean, Drain, Dry after full inspection and further action must be taken AND/OR a full inspection cannot be completed", value: $inspection.highriskAIS).padding(.bottom)
         CustomizedSegmentedPicker(title: "Adult Dreissenid Mussels Found?", value: $inspection.adultDreissenidFound)
       }
       .disabled(!isEditable)
-      .padding() // This makes Padding Inside of the border
+      .padding(Constants.basePadding) // This makes Padding Inside of the border
       .overlay(RoundedRectangle(cornerRadius: 10).stroke(bcBlueColor))
       .padding() // This makes Padding outside of the border, the order is sequential
     }
