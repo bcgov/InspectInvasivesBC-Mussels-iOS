@@ -58,6 +58,7 @@ class InspectionModel: Identifiable, ObservableObject, Codable {
     // High Risk Assesment fields
     @Published var highriskAIS: Bool = false
     @Published var adultDreissenidFound: Bool = false
+    @Published var highRiskInspectionOutcomes: HighRiskAssessmentModel = HighRiskAssessmentModel()
     // General comments
     @Published var generalComments: String = ""
     
