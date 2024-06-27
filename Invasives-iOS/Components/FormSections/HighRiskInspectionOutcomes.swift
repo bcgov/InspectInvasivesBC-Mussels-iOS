@@ -16,10 +16,13 @@ struct HighRiskInspectionOutcomes: View {
         VStack(alignment: .leading) {
           CustomizedSegmentedPicker(title: "Standing water present?", value: $inspection.highRiskInspectionOutcomes.standingWaterPresent)
           if(inspection.highRiskInspectionOutcomes.standingWaterPresent) {
-            CustomizedStructuredList(title: "Standing water locations", array: $inspection.highRiskInspectionOutcomes.standingWaterLocation, options: ["a", "b", "c"])
+            CustomizedStructuredList(title: "Standing water locations", array: $inspection.highRiskInspectionOutcomes.standingWaterLocation, options: standingLocations)
           }
           CustomizedSegmentedPicker(title: "Adult dreissenid mussels found?", value: $inspection.highRiskInspectionOutcomes.adultDreissenidMusselsFound)
-          CustomizedPicker(title: "Other inspection findings?", value: $inspection.highRiskInspectionOutcomes.otherInspectionFindings, options: ["", "init", "samples"])
+          if (inspection.highRiskInspectionOutcomes.adultDreissenidMusselsFound){
+            CustomizedStructuredList(title: "Adult Dreissenid mussels location", array: $inspection.highRiskInspectionOutcomes.adultDreissenidMusselsLocation, options: standingLocations)
+          }
+          CustomizedPicker(title: "Other inspection findings?", value: $inspection.highRiskInspectionOutcomes.otherInspectionFindings, options: otherInspectionFindings)
           CustomizedSegmentedPicker(title: "Decontamination performed?", value: $inspection.highRiskInspectionOutcomes.decontaminationPerformed)
           CustomizedSegmentedPicker(title: "Decontamination order issued", value: $inspection.highRiskInspectionOutcomes.decontaminationOrderIssued)
           CustomizedSegmentedPicker(title: "Appendix B completed and served?", value: $inspection.highRiskInspectionOutcomes.decontaminationAppendixB)
