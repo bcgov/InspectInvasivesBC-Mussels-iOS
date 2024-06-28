@@ -94,11 +94,7 @@ struct ShiftView: View {
             }.disabled(!isEditable)
           }
           HStack(alignment: .top) {
-            InputTextLabel(text: StringConstants.ShiftView.shiftStartComments)
-            TextField(StringConstants.ShiftView.shiftStartComments, text: $shift.shift_start_comment, axis: .vertical)
-              .scrollContentBackground(.hidden)
-              .background(inputBackgroundColor)
-            
+            CustomizedTextInput(title: StringConstants.ShiftView.shiftStartComments, text: $shift.shift_start_comment)
           }
         }.padding(.horizontal, 50)
       }
@@ -134,11 +130,7 @@ struct ShiftView: View {
             
           }
           HStack(alignment: .top) {
-            InputTextLabel(text: StringConstants.ShiftView.shiftEndComments)
-            TextField(StringConstants.ShiftView.shiftEndComments, text: $shift.shift_end_comment, axis: .vertical)
-              .scrollContentBackground(.hidden)
-              .background(inputBackgroundColor)
-              .labelsHidden()
+            CustomizedTextInput(title: StringConstants.ShiftView.shiftEndComments, text: $shift.shift_end_comment)
           }
         }.padding(.horizontal, 50)
       }

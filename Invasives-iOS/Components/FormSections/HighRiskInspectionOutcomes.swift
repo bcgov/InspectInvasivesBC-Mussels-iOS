@@ -11,29 +11,32 @@ import SwiftUI
 struct HighRiskInspectionOutcomes: View {
   @ObservedObject var inspection: InspectionModel
   let isEditable: Bool;
-    var body: some View {
-      HStack{
-        VStack(alignment: .leading) {
-          CustomizedSegmentedPicker(title: "Standing water present?", value: $inspection.highRiskInspectionOutcomes.standingWaterPresent)
-          if(inspection.highRiskInspectionOutcomes.standingWaterPresent) {
-            CustomizedStructuredList(title: "Standing water locations", array: $inspection.highRiskInspectionOutcomes.standingWaterLocation, options: standingLocations)
-          }
-          CustomizedSegmentedPicker(title: "Adult dreissenid mussels found?", value: $inspection.highRiskInspectionOutcomes.adultDreissenidMusselsFound)
-          if (inspection.highRiskInspectionOutcomes.adultDreissenidMusselsFound){
-            CustomizedStructuredList(title: "Adult Dreissenid mussels location", array: $inspection.highRiskInspectionOutcomes.adultDreissenidMusselsLocation, options: standingLocations)
-          }
-          CustomizedPicker(title: "Other inspection findings?", value: $inspection.highRiskInspectionOutcomes.otherInspectionFindings, options: otherInspectionFindings)
-          CustomizedSegmentedPicker(title: "Decontamination performed?", value: $inspection.highRiskInspectionOutcomes.decontaminationPerformed)
-          CustomizedSegmentedPicker(title: "Decontamination order issued", value: $inspection.highRiskInspectionOutcomes.decontaminationOrderIssued)
-          CustomizedSegmentedPicker(title: "Appendix B completed and served?", value: $inspection.highRiskInspectionOutcomes.decontaminationAppendixB)
-          CustomizedSegmentedPicker(title: "Seal issued or existing seal?", value: $inspection.highRiskInspectionOutcomes.sealIssued)
-          CustomizedSegmentedPicker(title: "Quarantine period issued?", value: $inspection.highRiskInspectionOutcomes.quarantinePeriodIssued)
+  var body: some View {
+    HStack{
+      VStack(alignment: .leading) {
+        CustomizedSegmentedPicker(title: "Standing water present?", value: $inspection.highRiskInspectionOutcomes.standingWaterPresent)
+        if(inspection.highRiskInspectionOutcomes.standingWaterPresent) {
+          CustomizedStructuredList(title: "Standing water locations", array: $inspection.highRiskInspectionOutcomes.standingWaterLocation, options: standingLocations)
         }
-        Spacer()
+        CustomizedSegmentedPicker(title: "Adult dreissenid mussels found?", value: $inspection.highRiskInspectionOutcomes.adultDreissenidMusselsFound)
+        if (inspection.highRiskInspectionOutcomes.adultDreissenidMusselsFound){
+          CustomizedStructuredList(title: "Adult Dreissenid mussels location", array: $inspection.highRiskInspectionOutcomes.adultDreissenidMusselsLocation, options: standingLocations)
+        }
+        CustomizedPicker(title: "Other inspection findings?", value: $inspection.highRiskInspectionOutcomes.otherInspectionFindings, options: otherInspectionFindings)
+        CustomizedSegmentedPicker(title: "Decontamination performed?", value: $inspection.highRiskInspectionOutcomes.decontaminationPerformed)
+        if(inspection.highRiskInspectionOutcomes.decontaminationPerformed ){
+          CustomizedTextInput(title: "Record of Decontamination Number", text: $inspection.highRiskInspectionOutcomes.decontaminationReference)
+        }
+        CustomizedSegmentedPicker(title: "Decontamination order issued", value: $inspection.highRiskInspectionOutcomes.decontaminationOrderIssued)
+        CustomizedSegmentedPicker(title: "Appendix B completed and served?", value: $inspection.highRiskInspectionOutcomes.decontaminationAppendixB)
+        CustomizedSegmentedPicker(title: "Seal issued or existing seal?", value: $inspection.highRiskInspectionOutcomes.sealIssued)
+        CustomizedSegmentedPicker(title: "Quarantine period issued?", value: $inspection.highRiskInspectionOutcomes.quarantinePeriodIssued)
       }
-      .disabled(!isEditable)
-      .padding(Constants.basePadding)
+      Spacer()
     }
+    .disabled(!isEditable)
+    .padding(Constants.basePadding)
+  }
 }
 
 #Preview {
