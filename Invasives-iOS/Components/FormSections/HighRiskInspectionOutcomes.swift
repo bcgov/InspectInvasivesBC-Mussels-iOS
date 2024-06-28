@@ -28,6 +28,11 @@ struct HighRiskInspectionOutcomes: View {
           CustomizedTextInput(title: "Record of Decontamination Number", text: $inspection.highRiskInspectionOutcomes.decontaminationReference)
         }
         CustomizedSegmentedPicker(title: "Decontamination order issued", value: $inspection.highRiskInspectionOutcomes.decontaminationOrderIssued)
+        if(inspection.highRiskInspectionOutcomes.decontaminationOrderIssued){
+          HStack {
+            CustomNumberPicker(title: "Decontamination order number", value: $inspection.highRiskInspectionOutcomes.decontaminationOrderNumber)
+          }
+        }
         CustomizedSegmentedPicker(title: "Appendix B completed and served?", value: $inspection.highRiskInspectionOutcomes.decontaminationAppendixB)
         CustomizedSegmentedPicker(title: "Seal issued or existing seal?", value: $inspection.highRiskInspectionOutcomes.sealIssued)
         CustomizedSegmentedPicker(title: "Quarantine period issued?", value: $inspection.highRiskInspectionOutcomes.quarantinePeriodIssued)

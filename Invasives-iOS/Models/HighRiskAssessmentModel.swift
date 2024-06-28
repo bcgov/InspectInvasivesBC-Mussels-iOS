@@ -30,7 +30,7 @@ class HighRiskAssessmentModel: Identifiable {
   
   @Published var decontaminationOrderIssued: Bool = false
   @Published var decontaminationAppendixB: Bool = false
-  @Published var decontaminationOrderNumber: Int = 0
+  @Published var decontaminationOrderNumber: String = ""
   @Published var decontaminationOrderReason: String = ""
   
   @Published var sealIssued: Bool = false
