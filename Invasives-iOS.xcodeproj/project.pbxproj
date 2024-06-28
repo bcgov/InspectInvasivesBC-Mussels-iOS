@@ -16,6 +16,7 @@
 		419606EC2C2DEB2900F990FF /* CustomizedStructuredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419606EB2C2DEB2900F990FF /* CustomizedStructuredList.swift */; };
 		419606EF2C2E0DC100F990FF /* StringListStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419606EE2C2E0DC100F990FF /* StringListStruct.swift */; };
 		419606F12C2F498400F990FF /* CustomizedTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419606F02C2F498400F990FF /* CustomizedTextInput.swift */; };
+		419606F32C2F561D00F990FF /* CustomNumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419606F22C2F561D00F990FF /* CustomNumberPicker.swift */; };
 		41A1204E2B684C630042EBEF /* CustomizedIntStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A1204D2B684C630042EBEF /* CustomizedIntStepper.swift */; };
 		41A120502B6855420042EBEF /* CustomizedSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A1204F2B6855420042EBEF /* CustomizedSegmentedPicker.swift */; };
 		41A120522B6865AC0042EBEF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A120512B6865AC0042EBEF /* Constants.swift */; };
@@ -75,6 +76,7 @@
 		419606EB2C2DEB2900F990FF /* CustomizedStructuredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedStructuredList.swift; sourceTree = "<group>"; };
 		419606EE2C2E0DC100F990FF /* StringListStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringListStruct.swift; sourceTree = "<group>"; };
 		419606F02C2F498400F990FF /* CustomizedTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedTextInput.swift; sourceTree = "<group>"; };
+		419606F22C2F561D00F990FF /* CustomNumberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumberPicker.swift; sourceTree = "<group>"; };
 		41A1204D2B684C630042EBEF /* CustomizedIntStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedIntStepper.swift; sourceTree = "<group>"; };
 		41A1204F2B6855420042EBEF /* CustomizedSegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedSegmentedPicker.swift; sourceTree = "<group>"; };
 		41A120512B6865AC0042EBEF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				416A164D2C2B6C810054E452 /* CustomizedPicker.swift */,
 				419606EB2C2DEB2900F990FF /* CustomizedStructuredList.swift */,
 				419606F02C2F498400F990FF /* CustomizedTextInput.swift */,
+				419606F22C2F561D00F990FF /* CustomNumberPicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				416A164C2C2B55DB0054E452 /* PassportInformation.swift in Sources */,
 				41D9B4F72B525E51006BB480 /* BlowbyTable.swift in Sources */,
 				41D844012B68221B0015FE18 /* InspectionTable.swift in Sources */,
+				419606F32C2F561D00F990FF /* CustomNumberPicker.swift in Sources */,
 				416A16502C2CAE400054E452 /* HighRiskFields.swift in Sources */,
 				41CDD6642B3FA20C0051F623 /* LoginView.swift in Sources */,
 				41CDD6672B3FA3230051F623 /* SettingsView.swift in Sources */,
