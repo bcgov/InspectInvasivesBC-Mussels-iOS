@@ -31,12 +31,51 @@ var ProvinceState: [String] = [
   }
 }
 
+let otherInspectionFindings: [String] = [
+  "Other Inspection Findings",
+  "Aquatic plants found",
+  "Dirty hull or bilge",
+  "Bait, live",
+  "Fish, live",
+  "Marine Barnacles found",
+  "Marine Mussels Found",
+  "Other unidentified species",
+  "Other mussels found"
+].sorted { a, b in
+  if a == "Other Inspection Findings" {
+      return true
+  } else if b == "Other Inspection Findings" {
+      return false
+  } else {
+      return a < b
+  }
+}
+
+let standingLocations: [String] = [
+  "Select Locations",
+  "Anchor/Ropes/Chains/Fenders",
+  "Bait and Live Wells",
+  "Ballast Tanks",
+  "Bilge",
+  "Seastrainer",
+  "Through Hull Fittings",
+  "Trailer",
+].sorted { a, b in
+  if a == "Select Locations" {
+      return true
+  } else if b == "Select Locations" {
+      return false
+  } else {
+      return a < b
+  }
+}
+
 var k9Results: [String] = [
   "",
   "K9 did indicate",
   "K9 did not indicate"
 ]
-var CleanDrainDryKnowledge: [String] = [
+let CleanDrainDryKnowledge: [String] = [
   "Select Source",
   "Internet",
   "Facebook",

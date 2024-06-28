@@ -143,11 +143,14 @@ struct InspectionView: View {
       CustomDivider()
       
       //MARK: High Risk Assessment section
-      Section(header: HeaderText(header: "High Risk Assessment Fields")) {
-        
-      }
+      HighRiskFields(inspection: inspection, isEditable: isEditable)
       CustomDivider()
       
+      if(inspection.adultDreissenidFound || inspection.highriskAIS){
+        Section(header: HeaderText(header: "High Risk Inspection Outcomes")){
+          HighRiskInspectionOutcomes(inspection: inspection, isEditable: isEditable)
+        }
+      }
       //MARK: Inspection Comments section
       Section(header: HeaderText(header: "Comments")) {
         

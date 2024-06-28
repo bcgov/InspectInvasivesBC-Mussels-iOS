@@ -35,7 +35,6 @@ struct InspectionTable: View {
               )} label: {
                 Label(StringConstants.HomeView.deleteLabel, systemImage: StringConstants.AppIcon.deleteIcon)
               }
-              
             }
           }
         }.foregroundColor(Color.black)
